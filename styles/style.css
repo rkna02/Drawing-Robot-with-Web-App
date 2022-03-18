@@ -1,0 +1,162 @@
+/* global element styles */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+h2 {
+    text-align: center;
+    font-size: 50px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 30px;
+}
+
+nav {
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+}
+
+/* navigation section */
+
+nav ul {
+    padding-top: 35px;
+    margin-left: 150px;
+}
+
+nav a {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 21px;
+    padding: 59px 50px 48px 50px;
+}
+
+header img {
+    height: 120px;
+    width: 150px;
+    margin-left: 30px;
+}
+
+/* page hero section */
+
+.page-hero h1 {
+    color: #fff;
+    font-size: 85px;
+    font-weight: 50px;
+    letter-spacing: 24px;
+    text-transform: uppercase;
+    margin-top: 55px;
+}
+
+.page-hero {
+    background: url(/styles/page-hero-img.png);
+    background-size: cover;
+    height: 750px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.page-hero h3 {
+    color: white;
+    margin-top: 455px;
+    padding-bottom: 10px;
+    font-size: 27px;
+}
+
+#button-page-hero {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* robot structure section */
+
+.front-view, .back-view {
+    margin-top: -40px;
+}
+
+.front-view img, .back-view img{
+    height: 500px;
+    width: 690px;
+    margin: 0px 30px 40px;
+}
+
+/* mode description sections */
+
+.mode-1 h2, .mode-2 h2 {
+    padding-top: 25px;
+}
+
+.mode-1 p, .mode-2 p {
+    font-size: 20px;
+    margin-top: 0px;
+    line-height: 30px;
+    margin: 0px 70px 30px;
+}
+
+.mode-1 a.button, .mode-2 a.button {
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    margin-left: 70px;
+    border-radius: 15px;
+}
+
+.mode-1 {
+    background-color: #B3A1A1;
+}
+
+.mode-1-content {
+    display: flex;
+}
+
+.mode-1 img {
+    height: 500px;
+    width: 500px;
+    margin: 0px 0px 75px 75px;
+}
+
+.mode-2 {
+    margin-top: -41px;
+    background-color: #8FB399;
+}
+
+.mode-2-content {
+    display: flex;
+}
+
+.mode-2 img {
+    height: 500px;
+    width: 500px;
+    margin: 0px 75px 75px 0px;
+}
+
+/* footer section */ 
+
+footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+

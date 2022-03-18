@@ -11,43 +11,84 @@
     <body>
 
       <header>
-        <div id="logo">
-          <img src="/styles/logo.jpg" alt="Drawbot Logo">
-        </div>
-        <div class="navigation">
-          <ul>
-            <li><a href="#" class="nav-link">Home</a></li>
-            <li><a href="#" class="nav-link">Showcase</a></li>
-            <li><a href="#" class="nav-link">Mode 1</a></li>
-            <li><a href="#" class="nav-link">Mode 2</a></li>
-          </ul>
+        <div class="container">
+          <div class="logo">
+            <img src="/styles/logo.jpg" alt="Drawbot Logo">
+          </div>
+          <nav class="navigation-top">
+            <ul>
+              <li><a href="#" class="nav-link">Home</a></li>
+              <li><a href="#" class="nav-link">Mode 1</a></li>
+              <li><a href="#" class="nav-link">Mode 2</a></li>
+              <li><a href="#" class="nav-link">Showcase</a></li>
+            </ul>
+          </nav>
         </div>
       </header>
 
-      <section class="introduction">
-
-
-      </section>
-
-      <section class="mode-1-description">
-
-
-      </section>
-
-      <section class="mode-2-description">
-
-
+      <section class="page-hero">
+        <h1>C291 Drawbot</h1>
+        <h3>Automatically draws your online drawings on paper, or choose to manually control the robot yourself!</h3>
+        <a href="mode-1" id="button-page-hero">Learn More</a>
       </section>
 
       <section class="gallery">
-
-
+        <h2>Robot Structure</h2>
+        <div class="container">
+          <div class="front-view">
+            <h3>Front View</h3>
+            <img src="styles/front-view.jpg">
+          </div>
+          <div class="back-view">
+            <h3>Back View</h3>
+            <img src="styles/back-view.jpg">
+          </div>
+        </div>  
       </section>
-      
-      <section class="components">
 
-
+      <section class="mode-1">
+        <h2>Mode 1</h2>
+        <div class="mode-1-content">
+          <div class="mode-1-image">
+            <img src="styles/mode1.png" alt="online sketchpad">
+          </div>
+          <div class="mode-1-description">
+            <p>
+              In this mode, the robot can draw out figures and letters based on online user inputs.
+              There is an online sketchpad that the user can draw on with a mouse or electronic pencil such as the Apple pencil.
+              The user can draw shapes and write text onto the online sketchpad. 
+              After finalizing the desired drawings and texts, press the button "Draw" to let the robot to start drawing.
+              Currently, this mode is restricted to drawing with one color and one drawing tool (brush, crayon, pencil crayon, etc).
+              If multiple colors and drawing tools are going to be needed, refer to mode 2 or divide the drawing into smaller pieces accordingly.
+            </p>
+            <a class="button">Start Drawing</a>
+          </div>
+        </div>
       </section>
+
+      <section class="mode-2">
+        <h2>Mode 2</h2>
+        <div class="mode-2-content">
+          <div class="mode-2-description">
+            <p>
+              In this mode, the robot actions can be controlled with an external controller. 
+              There are two buttons that controls the wheel movement, 
+              and one button that controls the height which the robot pen/pencil will be held at.
+              By doing so, the robot can be controlled externally to draw out shapes or text based on the user's interest
+              If multiple colors and drawing tools (brush, crayon, pencil crayon, etc) are doing to be used, 
+              the tools will have to be manually switched during the drawing process.
+            </p>
+            <a class="button">Start Controller</a>
+          </div>
+          <div class="mode-2-image">
+            <img src="styles/mode2.png" alt="simple controller">
+          </div>  
+        </div>  
+      </section>
+
+      <footer>
+        <p>Updated: March 18th, 2022</p>
+      </footer>
 
     </body>
 
