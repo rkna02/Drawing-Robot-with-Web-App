@@ -33,7 +33,13 @@ nav {
     display: flex;
 }
 
-/* navigation section */
+/* global navigation section */
+
+header img {
+    height: 120px;
+    width: 150px;
+    margin-left: 30px;
+}
 
 nav ul {
     padding-top: 35px;
@@ -47,11 +53,22 @@ nav a {
     padding: 59px 50px 48px 50px;
 }
 
-header img {
-    height: 120px;
-    width: 150px;
-    margin-left: 30px;
+nav a:hover {
+    color: white;
+    background-color: black;
 }
+
+/* global footer section */ 
+
+footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+
+/* HOME PAGE STYLES */
 
 /* page hero section */
 
@@ -150,13 +167,34 @@ header img {
     margin: 0px 75px 75px 0px;
 }
 
-/* footer section */ 
 
-footer {
-    display: flex;
-    background-color: black;
-    color: white;
-    padding: 20px;
+/* MODE 1 PAGE STYLES */
+
+.mode-1-instructions {
+    background-color: #7F7373;
+    height: 300px;
+    width: 100%;
+}
+
+.sketchpad {
+    background-color: #BFABA3;
+    height: 800px;
+    width: 100%;
+}
+
+
+/* MODE 2 PAGE STYLES */
+
+.mode-2-instructions {
+    background-color: #667F6D;
+    height: 300px;
+    width: 100%;
+}
+
+.controlpad {
+    background-color: #8FB399;
+    height: 800px;
+    width: 100%;
 }
 
 
