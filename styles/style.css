@@ -59,7 +59,7 @@ header img {
     color: #fff;
     font-size: 85px;
     font-weight: 50px;
-    letter-spacing: 24px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     margin-top: 55px;
 }
@@ -123,6 +123,15 @@ header img {
 
 .mode-1 {
     background-color: #B3A1A1;
+}
+
+/* mode 1 sub page*/
+.mode-1-sub{
+    background-color: rgb(87, 220, 230);
+}
+
+.mode-1-sub h2{
+    font-size: 30px;
 }
 
 .mode-1-content {
