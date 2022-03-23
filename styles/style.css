@@ -162,15 +162,6 @@ footer {
     background-color: #B3A1A1;
 }
 
-/* mode 1 sub page*/
-.mode-1-sub{
-    background-color: rgb(87, 220, 230);
-}
-
-.mode-1-sub h2{
-    font-size: 30px;
-}
-
 .mode-1-content {
     display: flex;
 }
@@ -205,10 +196,76 @@ footer {
     width: 100%;
 }
 
+/*
 .sketchpad {
     background-color: #BFABA3;
     height: 800px;
     width: 100%;
+}
+*/
+
+.mode-1-sub{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(220, 253, 255);
+}
+.mode-1-sub h2{
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium';
+    color: rgb(32, 153, 32);
+}
+
+.option1{
+    width: 50%;
+}
+
+.shapes{
+    margin-left: 15%;
+}
+
+.shapes img{
+    border-radius: 25px;
+    width: 25%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.shapes{
+    margin-left: 15%;
+}
+
+.shapes img{
+    border-radius: 25px;
+    width: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.block{
+    width: 150px;
+    height: 150px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(165, 162, 162);
+    margin-bottom: 1%;
+
+}
+
+.block:hover{
+    background-color: violet;
+}
+
+
+.option2{
+    width: 50%;
+}
+.chatbox canvas {
+    outline: 5px solid #c2ebc4;
+    border-radius: 5px;
+    margin-bottom: 2%;
+  }
+.text form #fname{
+    width: 40%;
 }
 
 

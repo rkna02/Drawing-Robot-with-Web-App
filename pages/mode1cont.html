@@ -11,7 +11,7 @@
     <body>
 
       <header>
-        <div class="container-sub">
+        <div class="container">
           <div class="logo">
             <img src="/styles/logo.jpg" alt="Drawbot Logo">
           </div>
@@ -27,40 +27,55 @@
       </header>
 
 
-
+      <h1>MODE 1</h1> <!--formate??-->
+      
       <section class="mode-1-sub" id="Mode1">
-        <h1>MODE 1</h1>
-        <h2 class="option1">Option1: Choose one or more shapes below:</h2>
-        <div class="shapes"> <!--option1-->
-          <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY"  class="button"> 
-            <img src="/styles/shape_square.jpg" height ="150" width="150">
-          </a>
-          <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
-            <img src="/styles/shape_triangle.jpg" height ="150" width="150">
-          </a>
-          <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button> 
-            <img src="/styles/shape_circle.jpg" height ="150" width="150">
-          </a>
-          <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
-            <img src="/styles/shape_rectangle.jpg" height ="150" width="150">
-          </a>
-          <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
-            <img src="/styles/shape_heart.jpg" height ="150" width="150">
-          </a>
-          <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
-            <img src="/styles/shape_oval.jpg" height ="150" width="150">
-          </a>
+        <div class="option1">
+          <h2>① Choose one shape below:</h2>
+          <div class="shapes"> <!--option1-->
+            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+              <img src="/styles/shape_square.jpg">
+            </button>
+            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+              <img src="/styles/shape_triangle.jpg">
+            </button>
+            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+
+              <img src="/styles/shape_circle.jpg">
+            </button>
+            <br>
+
+            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+              <img src="/styles/shape_rectangle.jpg">
+            </button>
+            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+              <img src="/styles/shape_heart.jpg">
+            </button>
+            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+
+              <img src="/styles/shape_oval.jpg">
+            </button>
+          </div>
+          <div class="hi">
+            <p id="demo"></p>
+          </div>
         </div>
 
-        <h2 class="option2">Option2: Enter your text below: </h2> <!--option2 title-->
-        <div class="text"> <!--option2-->
-          <form action="/action_page.php">
-            <label for="fname"> Input text:</label>
-            <input type="text" id="fname" name="fname">
-            <input type="submit" value="Submit">
-          </form>
-          <p>Click the "Submit" button and the form-data will be sent to a page on the 
-          server called "action_page.php".</p>
+        <div class="option2">
+          <h2>② Enter your text below: </h2> <!--option2 title-->
+          <div class="chatbox">
+            <canvas id="canvas" width="500" height="300"></canvas>
+          </div>
+          <div class="text"> <!--option2-->
+            <form action="/action_page.php">
+              <label for="fname"> Input text:</label>
+              <input type="text" id="fname" name="fname" placeholder="Enter content max length 40" maxlength="40">
+              <input type="submit" value="Submit">
+            </form>
+            <p>Click the "Submit" button and the form-data will be sent to a page on the 
+            server called "action_page.php".</p>
+          </div>
+          <script src="./src/script/app.js"></script>
         </div>
       </section>
 
