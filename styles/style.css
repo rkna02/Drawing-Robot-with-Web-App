@@ -310,9 +310,10 @@ footer {
     font-size: 400%;
 }
 
-.controlpad-top {
+#forward {
     margin-top: 100px;
-    margin-right: 600px;
+    margin-left: 200px;
+    margin-right: 100px;
 }
 
 .controlpad-bottom {
@@ -321,6 +322,10 @@ footer {
 }
 
 #up {
+    margin-left: 300px;
+}
+
+#down{
     margin-left: 200px;
 }
 
