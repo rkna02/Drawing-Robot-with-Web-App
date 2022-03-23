@@ -283,15 +283,21 @@ footer {
     align-items: center;
     justify-content: center;
     background-color: #8FB399;
-    height: 800px;
-    width: 100%;
+}
+.controlpad input {
+    background-color: #ffffff;
+    height: 200px;
+    width: 200px;
+    font-size: 400%;
 }
 
 .controlpad-bottom {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+
 }
+
+
+/*
 #forward{
     order: 1;
     width: 10%;
@@ -310,4 +316,5 @@ footer {
     order: 3;
     margin-right: 50%;
 }
+*/
 
