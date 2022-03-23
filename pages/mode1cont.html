@@ -40,9 +40,11 @@
               <img src="/styles/shape_triangle.jpg">
             </button>
             <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+
               <img src="/styles/shape_circle.jpg">
             </button>
             <br>
+
             <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
               <img src="/styles/shape_rectangle.jpg">
             </button>
@@ -50,6 +52,7 @@
               <img src="/styles/shape_heart.jpg">
             </button>
             <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+
               <img src="/styles/shape_oval.jpg">
             </button>
           </div>
@@ -60,6 +63,9 @@
 
         <div class="option2">
           <h2>② Enter your text below: </h2> <!--option2 title-->
+          <div class="chatbox">
+            <canvas id="canvas" width="500" height="300"></canvas>
+          </div>
           <div class="text"> <!--option2-->
             <form action="/action_page.php">
               <label for="fname"> Input text:</label>
@@ -69,6 +75,7 @@
             <p>Click the "Submit" button and the form-data will be sent to a page on the 
             server called "action_page.php".</p>
           </div>
+          <script src="./src/script/app.js"></script>
         </div>
       </section>
 
