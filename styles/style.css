@@ -221,9 +221,36 @@ footer {
 }
 
 .controlpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #8FB399;
     height: 800px;
     width: 100%;
 }
 
+.controlpad-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#forward{
+    order: 1;
+    width: 10%;
+    height: 10%;
+    font-size: 200%;
+}
+#backward{
+    order: 4;
+    margin-top: 15%;
+}
+#right{
+    order: 2;
+    margin-left: 50%;
+}
+#left{
+    order: 3;
+    margin-right: 50%;
+}
 

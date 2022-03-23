@@ -3,6 +3,8 @@
   <html>
 
     <head>
+      <!--include the javascript file to get functions-->
+      <script type="text/javascript"src ="server.js"></script>
       <title>Experience the Drawing Robot!</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="styles/style.css">
@@ -34,8 +36,12 @@
         </section>
 
         <section class="controlpad">
-
-
+          <input type = "button" id = "forward" onclick = "move_forward()" value ="w">
+          <div controlpad-bottom>
+            <input type = "button" id = "backward" onclick=" move_backward()" value ="s">
+            <input type = "button" id = "right" onclick=" move_right()" value ="d">
+            <input type = "button" id = "left" onclick=" move_left()" value ="a">
+          </div>
         </section>
 
 
