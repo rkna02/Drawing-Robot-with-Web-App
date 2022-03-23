@@ -266,9 +266,10 @@ footer {
 
 .shape_text{
     margin-left: 15%;
-    text-shadow: 2px 2px 5px red;
+    text-shadow: 2px 2px 5px rgb(204, 7, 178);
     font-size: 25px;
-    font-weight: 200;
+    font-weight: 400;
+    font-family: fantasy;
 }
 
 
