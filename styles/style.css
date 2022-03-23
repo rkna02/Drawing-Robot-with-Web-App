@@ -203,7 +203,16 @@ footer {
     width: 100%;
 }
 */
+.mode1_title{
+    background-image: url("mode1_bg.jpg"); 
 
+}
+.mode1_title h1{
+    margin-left: 50px;
+    margin-bottom: 10pt;
+    font-size: 60px;
+    font-family: 'Courier New', Courier, monospace;
+}
 .mode-1-sub{
     display: flex;
     flex-direction: row;
@@ -253,6 +262,13 @@ footer {
 
 .block:hover{
     background-color: violet;
+}
+
+.shape_text{
+    margin-left: 15%;
+    text-shadow: 2px 2px 5px red;
+    font-size: 25px;
+    font-weight: 200;
 }
 
 

@@ -27,36 +27,45 @@
       </header>
 
 
-      <h1>MODE 1</h1> <!--formate??-->
+      <div class = "mode1_title">
+        <h1>MODE 1</h1> <!--formate??-->
+      </div>
       
       <section class="mode-1-sub" id="Mode1">
+        <script>
+          function printShape(shape) {
+          document.getElementById("demo").innerHTML = shape;
+          }
+        </script>
         <div class="option1">
           <h2>① Choose one shape below:</h2>
           <div class="shapes"> <!--option1-->
-            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+            <button type="button" class = "block" onclick="printShape('square')"> 
               <img src="/styles/shape_square.jpg">
             </button>
-            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+            <button type="button" class = "block" onclick="printShape('triangle')"> 
               <img src="/styles/shape_triangle.jpg">
             </button>
-            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+            <button type="button" class = "block" onclick="printShape('circle')"> 
 
               <img src="/styles/shape_circle.jpg">
             </button>
             <br>
 
-            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+            <button type="button" class = "block" onclick="printShape('rectangle')"> 
               <img src="/styles/shape_rectangle.jpg">
             </button>
-            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+            <button type="button" class = "block" onclick="printShape('heart')"> 
               <img src="/styles/shape_heart.jpg">
             </button>
-            <button type="button" class = "block" onclick="document.getElementById('demo').innerHTML = Date()"> 
+            <button type="button" class = "block" onclick="printShape('oval')"> 
 
               <img src="/styles/shape_oval.jpg">
             </button>
           </div>
-          <div class="hi">
+          <div class = "shape_text">
+            <p>You've chosen: </p>
+            <br>
             <p id="demo"></p>
           </div>
         </div>
