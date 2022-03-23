@@ -31,25 +31,25 @@
       
       <section class="mode-1-sub" id="Mode1">
         <div class="option1">
-          <h2>① Choose one or more shapes below:</h2>
+          <h2>① Choose one shape below:</h2>
           <div class="shapes"> <!--option1-->
-            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY"  class="button"> 
+            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" class="button"> 
               <img src="/styles/shape_square.jpg">
             </a>
-            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
+            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" class="button"> 
               <img src="/styles/shape_triangle.jpg">
             </a>
-            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button> 
+            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" class="button"> 
               <img src="/styles/shape_circle.jpg">
             </a>
             <br>
-            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
+            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" class="button"> 
               <img src="/styles/shape_rectangle.jpg">
             </a>
-            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
+            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" class="button"> 
               <img src="/styles/shape_heart.jpg">
             </a>
-            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" button class="button"> 
+            <a href="https://www.youtube.com/watch?v=GVPHdFX9iHY" class="button"> 
               <img src="/styles/shape_oval.jpg">
             </a>
           </div>
@@ -60,6 +60,9 @@
 
         <div class="option2">
           <h2>② Enter your text below: </h2> <!--option2 title-->
+          <div class="chatbox">
+            <canvas id="canvas" width="500" height="300"></canvas>
+          </div>
           <div class="text"> <!--option2-->
             <form action="/action_page.php">
               <label for="fname"> Input text:</label>
@@ -69,6 +72,7 @@
             <p>Click the "Submit" button and the form-data will be sent to a page on the 
             server called "action_page.php".</p>
           </div>
+          <script src="./src/script/app.js"></script>
         </div>
       </section>
 

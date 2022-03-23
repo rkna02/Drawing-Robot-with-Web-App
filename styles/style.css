@@ -196,16 +196,17 @@ footer {
     width: 100%;
 }
 
+/*
 .sketchpad {
     background-color: #BFABA3;
     height: 800px;
     width: 100%;
 }
+*/
 
 .mode-1-sub{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     background-color: rgb(220, 253, 255);
 }
 .mode-1-sub h2{
@@ -218,17 +219,27 @@ footer {
     width: 50%;
 }
 
+.shapes{
+    margin-left: 15%;
+}
+
 .shapes img{
     border-radius: 25px;
-    width: 20%;
-    margin-left: 3%;
+    width: 25%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 .option2{
     width: 50%;
 }
+.chatbox canvas {
+    outline: 5px solid #c2ebc4;
+    border-radius: 5px;
+    margin-bottom: 2%;
+  }
 .text form #fname{
-    width: 50%;
+    width: 40%;
 }
 
 
