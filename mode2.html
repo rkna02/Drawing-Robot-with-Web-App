@@ -31,16 +31,19 @@
       <main>
 
         <section class="mode-2-instructions">
-
-
+          <h2>Insert instructions here</h2>
         </section>
 
         <section class="controlpad">
-          <input type = "button" id = "forward" onclick = "move_forward()" value ="W">
+          <div class="controlpad-top">
+            <input type = "button" id = "forward" onclick = "move_forward()" value ="W">
+          </div>
           <div class="controlpad-bottom">
             <input type = "button" id = "backward" onclick=" move_backward()" value ="A">
             <input type = "button" id = "right" onclick=" move_right()" value ="S">
             <input type = "button" id = "left" onclick=" move_left()" value ="D">
+            <input type = "button" id = "up" onclick="lift_up()" value="J">
+            <input type = "button" id = "down" onclick="lift_down()" value="K">
           </div>
         </section>
 

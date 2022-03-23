@@ -272,6 +272,7 @@ footer {
 /* MODE 2 PAGE STYLES */
 
 .mode-2-instructions {
+    display: flex;
     background-color: #667F6D;
     height: 300px;
     width: 100%;
@@ -284,18 +285,27 @@ footer {
     justify-content: center;
     background-color: #8FB399;
 }
+
 .controlpad input {
-    background-color: #ffffff;
+    background-color: #E6FFED;
     height: 200px;
     width: 200px;
     font-size: 400%;
 }
 
-.controlpad-bottom {
-    display: flex;
-
+.controlpad-top {
+    margin-top: 100px;
+    margin-right: 600px;
 }
 
+.controlpad-bottom {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+#up {
+    margin-left: 200px;
+}
 
 /*
 #forward{
