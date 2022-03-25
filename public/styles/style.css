@@ -84,7 +84,7 @@ footer {
 }
 
 .page-hero {
-    background: url(/styles/page-hero-img.png);
+    background: url(page-hero-img.png);
     background-size: cover;
     height: 750px;
     text-align: center;
@@ -203,7 +203,16 @@ footer {
     width: 100%;
 }
 */
+.mode1_title{
+    background-image: url("mode1_bg.jpg"); 
 
+}
+.mode1_title h1{
+    margin-left: 50px;
+    margin-bottom: 10pt;
+    font-size: 60px;
+    font-family: 'Courier New', Courier, monospace;
+}
 .mode-1-sub{
     display: flex;
     flex-direction: row;
@@ -230,6 +239,40 @@ footer {
     margin-right: 1%;
     margin-bottom: 1%;
 }
+
+.shapes{
+    margin-left: 15%;
+}
+
+.shapes img{
+    border-radius: 25px;
+    width: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.block{
+    width: 150px;
+    height: 150px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(165, 162, 162);
+    margin-bottom: 1%;
+
+}
+
+.block:hover{
+    background-color: violet;
+}
+
+.shape_text{
+    margin-left: 15%;
+    text-shadow: 2px 2px 5px rgb(204, 7, 178);
+    font-size: 25px;
+    font-weight: 400;
+    font-family: fantasy;
+}
+
 
 .option2{
     width: 50%;
@@ -280,15 +323,64 @@ footer {
 /* MODE 2 PAGE STYLES */
 
 .mode-2-instructions {
+    display: flex;
     background-color: #667F6D;
     height: 300px;
     width: 100%;
 }
 
 .controlpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #8FB399;
-    height: 800px;
-    width: 100%;
 }
 
+.controlpad input {
+    background-color: #E6FFED;
+    height: 200px;
+    width: 200px;
+    font-size: 400%;
+}
+
+#forward {
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 100px;
+}
+
+.controlpad-bottom {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+#up {
+    margin-left: 300px;
+}
+
+#down{
+    margin-left: 200px;
+}
+
+/*
+#forward{
+    order: 1;
+    width: 10%;
+    height: 10%;
+    font-size: 200%;
+}
+#backward{
+    order: 4;
+    margin-top: 15%;
+}
+#right{
+    order: 2;
+    margin-left: 50%;
+}
+#left{
+    order: 3;
+    margin-right: 50%;
+}
+*/
 

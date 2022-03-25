@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+  <html>
+
+    <head>
+      <title>Drawing Robot Mode 1</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    </head>
+
+    <body>
+
+      <header>
+        <div class="container">
+          <div class="logo">
+            <img src="../styles/logo.jpg" alt="Drawbot Logo">
+          </div>
+          <nav class="navigation-top">
+            <ul>
+              <li><a href="../index.html" class="nav-link">Home</a></li>
+              <li><a href="#" class="nav-link">Mode 1</a></li>
+              <li><a href="mode2cont.html" class="nav-link">Mode 2</a></li>
+              <li><a href="showcase.html" class="nav-link">Showcase</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+
+      <div class = "mode1_title">
+        <h1>MODE 1</h1> <!--formate??-->
+      </div>
+      
+      <section class="mode-1-sub" id="Mode1">
+        <script>
+          function printShape(shape) {
+          document.getElementById("demo").innerHTML = shape;
+          }
+        </script>
+        <div class="option1">
+          <h2>① Choose one shape below:</h2>
+          <div class="shapes"> <!--option1-->
+            <button type="button" class = "block" onclick="printShape('SQUARE')"> 
+              <img src="../styles/shape_square.jpg">
+            </button>
+            <button type="button" class = "block" onclick="printShape('TRIANGLE')"> 
+              <img src="../styles/shape_triangle.jpg">
+            </button>
+            <button type="button" class = "block" onclick="printShape('CIRCLE')"> 
+
+              <img src="../styles/shape_circle.jpg">
+            </button>
+            <br>
+
+            <button type="button" class = "block" onclick="printShape('RECTANGLE')"> 
+              <img src="../styles/shape_rectangle.jpg">
+            </button>
+            <button type="button" class = "block" onclick="printShape('HEART')"> 
+              <img src="../styles/shape_heart.jpg">
+            </button>
+            <button type="button" class = "block" onclick="printShape('OVAL')"> 
+
+              <img src="../styles/shape_oval.jpg">
+            </button>
+          </div>
+          <div class = "shape_text">
+            <p>You've chosen: </p>
+            <p id="demo"></p>
+          </div>
+        </div>
+
+        <div class="option2">
+          <h2>② Enter your text below: </h2> <!--option2 title-->
+          <div class="chatbox">
+            <canvas id="canvas" width="500" height="300"></canvas>
+            <label for="fname"> Input text:</label>
+            <input type="text" id="content" placeholder="Enter content max length 40" maxlength="40">
+            <button type="button" id="submit">submit</button>
+            <button type="button" id="clear">clear</button>
+          </div>
+          <script src="./app.js"></script>
+        </div>
+      </section>
+
+      <footer>
+        <p>Updated: March 18th, 2022</p>
+      </footer>
+
+    </body>
+
+  </html>
+  
+
+  

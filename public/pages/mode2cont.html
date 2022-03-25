@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+  <html>
+
+    <head>
+      <!--include the javascript file to get functions-->
+      <script type="text/javascript"src ="server.js"></script>
+      <title>Experience the Drawing Robot!</title>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    </head>
+
+    <body>
+
+      <header>
+        <div class="container">
+          <div class="logo">
+            <img src="../styles/logo.jpg" alt="Drawbot Logo">
+          </div>
+          <nav class="navigation-top">
+            <ul>
+              <li><a href="../index.html" class="nav-link">Home</a></li>
+              <li><a href="mode1cont.html" class="nav-link">Mode 1</a></li>
+              <li><a href="#" class="nav-link">Mode 2</a></li>
+              <li><a href="showcase.html" class="nav-link">Showcase</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+
+        <section class="mode-2-instructions">
+          <h2>Insert instructions here</h2>
+        </section>
+
+        <section class="controlpad">
+          <div class="controlpad-top">
+            <input type = "button" id = "forward" onclick = "move_forward()" value ="W">
+            <input type = "button" id = "up" onclick="lift_up()" value="⬆️">
+          </div>
+          <div class="controlpad-bottom">
+            <input type = "button" id = "backward" onclick=" move_backward()" value ="A">
+            <input type = "button" id = "right" onclick=" move_right()" value ="S">
+            <input type = "button" id = "left" onclick=" move_left()" value ="D">
+            <input type = "button" id = "down" onclick="lift_down()" value="⬇️">
+          </div>
+        </section>
+
+
+      </main>
+
+      <footer>
+        <p>Updated: March 18th, 2022</p>
+      </footer>
+
+    </body>
+
+  </html>
+  
