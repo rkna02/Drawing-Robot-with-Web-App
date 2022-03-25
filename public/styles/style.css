@@ -84,7 +84,7 @@ footer {
 }
 
 .page-hero {
-    background: url(/styles/page-hero-img.png);
+    background: url(page-hero-img.png);
     background-size: cover;
     height: 750px;
     text-align: center;
