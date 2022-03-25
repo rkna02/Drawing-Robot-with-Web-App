@@ -1,14 +1,24 @@
-const http = require('http');
-
+const http = require('http')  // http 
+const fs = require('fs')  // file handler
 const port = 3000;
 
 // create server, the function that is passed to createServer will be called whenever we request from the server
 const server = http.createServer((req, res) => {
-  /*
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-  */
+  // Status code: 200
+  // JSON: specify type of content to send for parsing
+  res.writeHead(200, { 'Content-Type': 'text/html' })  
+  fs.readFile('index.html', (error, data) => {
+    // error: error if any arises 
+    // data: all the data of the specified file
+    if (error) {
+      res.writeHead(404)
+      res.write('ERROR: File not found')
+    } else {
+      res.write(data)  // write back to server requested data
+    }
+
+    res.end()  // ending server
+  })
 })
 
 server.listen(port, function(error) {
