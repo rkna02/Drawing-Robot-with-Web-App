@@ -1,3 +1,32 @@
+const http = require('http');
+
+const port = 3000;
+
+// create server, the function that is passed to createServer will be called whenever we request from the server
+const server = http.createServer((req, res) => {
+  /*
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
+  */
+})
+
+server.listen(port, function(error) {
+  if (error) {
+    console.log('ERROR: failed to get information', error)
+  } else {
+    console.log('Server is listening on port' + port)
+  }
+})
+
+
+
+
+
+
+
+
+/*
 // var http = require('http');
 // var fs = require('fs');
 
@@ -39,3 +68,4 @@ function move_left(){
 // // document.getElementById("forward").addEventListener("keyup", (w) =>{
 // //   document.getElementById("forward").value ="w"
 // // });
+*/
