@@ -255,15 +255,11 @@ footer {
     width: 150px;
     height: 150px;
     border: none;
-    border-radius: 5px;
-    background-color: rgb(165, 162, 162);
+    border-radius: 10px;
     margin-bottom: 1%;
 
 }
 
-.block:hover{
-    background-color: violet;
-}
 
 .shape_text{
     margin-left: 15%;
