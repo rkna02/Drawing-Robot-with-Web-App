@@ -229,20 +229,17 @@ footer {
 }
 
 .shapes{
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
-.shapes img{
+/*.shapes img{
     border-radius: 25px;
     width: 25%;
     margin-left: 1%;
     margin-right: 1%;
     margin-bottom: 1%;
-}
+}*/
 
-.shapes{
-    margin-left: 15%;
-}
 
 .shapes img{
     border-radius: 25px;
@@ -255,18 +252,14 @@ footer {
     width: 150px;
     height: 150px;
     border: none;
-    border-radius: 5px;
-    background-color: rgb(165, 162, 162);
+    border-radius: 10px;
     margin-bottom: 1%;
 
 }
 
-.block:hover{
-    background-color: violet;
-}
 
 .shape_text{
-    margin-left: 15%;
+    margin-left: 20%;
     text-shadow: 2px 2px 5px rgb(204, 7, 178);
     font-size: 25px;
     font-weight: 400;
