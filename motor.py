@@ -30,90 +30,70 @@ p.start(2.5) # Initialization
 #        0.25 doesn't seem to move, should try >= 0.3
 # Negative means forward, positive means backward
 
-
-# try:
-#   while True:
-#lift pen up
-p.ChangeDutyCycle(10)
-time.sleep(0.5)
-
-#put pen down
-p.ChangeDutyCycle(6)
-time.sleep(0.5)
-
-#go forward
-kit.motor1.throttle = -0.35
-kit.motor2.throttle = -0.35
-time.sleep(0.5)
-
-#stop
-kit.motor1.throttle = 0
-kit.motor2.throttle = 0
-time.sleep(0.5)
-
-#lift pen up
-p.ChangeDutyCycle(10)
-time.sleep(0.5)
-
-# turn
-kit.motor1.throttle = -0.35
-kit.motor2.throttle = 0
-time.sleep(0.5)
-
-#stop
-kit.motor1.throttle = 0
-kit.motor2.throttle = 0
-time.sleep(0.5)
-
-#put pen down
-p.ChangeDutyCycle(6)
-time.sleep(0.5)
-#forward
-kit.motor1.throttle = -0.35
-kit.motor2.throttle = -0.35
-time.sleep(0.5)
-
-#stop
-kit.motor1.throttle = 0
-kit.motor2.throttle = 0
-time.sleep(0.5)
-
-#lift pen up
-p.ChangeDutyCycle(10)
-time.sleep(0.5)
-
-
 # -------- shape functions by sonya ---- NOT TESTED !!! -----------
-def forward():
-    kit.motor1.throttle = -0.35
-    kit.motor2.throttle = -0.35
-    # kit.motor1.throttle = -0.35
-    # kit.motor2.throttle = -0.35
+def forward(interval):
+    kit.motor1.throttle = 0.40 # m1 is right side
+    kit.motor2.throttle = 0.35
+    time.sleep(interval)
+    kit.motor1.throttle = 0
+    kit.motor2.throttle = 0
     # want to see if adding these two lines would make it move farther than just one set of -0.35
 
 def farfw():  # farther forward
     kit.motor1.throttle = -0.5
     kit.motor2.throttle = -0.5
+    time.sleep(0.5)
+
+def stop():
+    kit.motor1.throttle = 0
+    kit.motor2.throttle = 0
+    time.sleep(0.5)
+
+def backword():
+    kit.motor1.throttle = 0.35
+    kit.motor2.throttle = 0.35
 
 def pdown():
-    p.ChangeDutyCycle(6)
+    p.ChangeDutyCycle(5.5)
+    #time.sleep(1)
 
 def pup():
     p.ChangeDutyCycle(10)
+    #time.sleep(1)
 
 # idk motor 1 is left or right side ... assume it's on the left
 def turn90():  # turn right
     # the goal is to turn 90, without moving the pen from it's originial position on paper
     # assume the pen is down before starting this function
     pup()
-    kit.motor1.trottle = -0.3
-    kit.motor2.trottle = 0.3
-    kit.motor2.trottle = 0.35  # backup
-    kit.motor1.trottle = 0.35
+#     forward(0.05)
+    kit.motor2.throttle = 0.35
+    time.sleep(0.845)
+    kit.motor2.throttle = 0
+    time.sleep(1)
+    kit.motor1.throttle = 0
+    kit.motor2.throttle = 0
+    time.sleep(1)
+    kit.motor1.throttle = -0.40  # backup
+    kit.motor2.throttle = -0.35
+    time.sleep(0.75)
+    kit.motor1.throttle = 0
+    kit.motor2.throttle = 0
+    time.sleep(0.5)
     # kit.motor1.trottle = 1.0" moves the motor forwards for one fifth of a second at full speed.
     # hope 0.3 works, but i guess its gonna turn more than i expected..
+    time.sleep(0.5)
     pdown()
-
+    time.sleep(0.5)
+    
+# turn90()
+# pdown()
+# forward(0.5)
+# pup()
+# forward(0.1)
+# turn90()
+# pdown()
+# pup()
 
 # assume pen is up before starting any shapes
 # assume car is facing right: "car->"
@@ -122,17 +102,19 @@ def dr_squ():  # draw square
     #       |  |
     #       ````
     pdown()
-    forward()  # 0 to 1
+    forward(0.5)  # 0 to 1
     turn90()
-    forward()  # 2
+    forward(0.5)  # 2
     turn90()
-    forward()  # 3
+    forward(0.5)  # 3
     turn90()
-    forward()  # 4
+    forward(0.5)  # 4
     turn90()  # reposition: facing to right
     pup()
-    farfw()  # position to next empty place
-
+    stop()
+    #farfw()  # position to next empty place
+dr_squ()
+stop()
 
 def dr_tri():
     #    0 1
@@ -156,14 +138,18 @@ def dr_cir():  # idea 1 go around for a circle
     #        4|       |2
     #          \     /
     #           ``3``
-    forward()  # position 0 to 1
+    forward(0.2)  # position 0 to 1
     pdown()
-    kit.motor1.throttle = -0.55
-    kit.motor2.throttle = -0.35
+    #time.sleep(1)
+    kit.motor1.throttle = 0.55
+    #kit.motor2.throttle = 0.35
+    time.sleep(2)
     # no idea if this could make a full circle..
     pup()
-    forward()  # position to next empty place
+    #forward()  # position to next empty place
 
+#dr_cir()
+#stop()
 
 def dr_cir2():  # idea 2 self rotation
     #     0    _1_
@@ -241,22 +227,23 @@ def dr_oral():
 
 
 # testing all shapes:
-dr_squ()
-time.sleep(0.5)
-dr_cir()
-time.sleep(0.5)
-dr_cir2()
-time.sleep(0.5)
-dr_tri()
-time.sleep(0.5)
-dr_rec()
-time.sleep(0.5)
-dr_heart()  # skipped for now
-time.sleep(0.5)
-dr_oral()
-time.sleep(0.5)
+#dr_squ()
+#time.sleep(0.5)
+#dr_cir()
+#time.sleep(0.5)
+#dr_cir2()
+#time.sleep(0.5)
+#dr_tri()
+#time.sleep(0.5)
+#dr_rec()
+#time.sleep(0.5)
+#dr_heart()  # skipped for now
+#time.sleep(0.5)
+#dr_oral()
+#time.sleep(0.5)
 
-
+#kit.motor1.throttle=0
+#kit.motor2.throttle=0
 # except KeyboardInterrupt:
 p.stop()
-GPIO.cleanup() #free resources on gpio pins 
+GPIO.cleanup() #free resources on gpio pins
