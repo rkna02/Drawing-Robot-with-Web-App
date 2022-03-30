@@ -78,18 +78,26 @@
       <footer>
         <p>Updated: March 29th, 2022</p>
       </footer>
+
       <script src="/socket.io/socket.io.js"> </script>
       <script>
         const socket = io();
+        const timeout = 200;
         // socket.on('greeting-from-server', function (message) {
         //   document.body.appendChild(document.createTextNode(message.greeting));
         // });
         const forwardbtn = document.getElementById("forward");
-        forwardbtn.addEventListener("keypress", () =>{
+        forwardbtn.addEventListener("click", () =>{
           // socket.emit('greeting-from-btn',{
           //   greeting: 'Hello Server from btn'
           // });
-          socket.emit('forward_cmd', forwardbtn.value);        
+          forward.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          forward.style.color = "#001B48";
+          socket.emit('forward_cmd', forwardbtn.value);    
+          setTimeout(() => {
+            forward.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            forward.style.color = "rgba(119, 255, 255, 100)";  
+          }, timeout);
         });
         // socket.emit('greeting-from-client',{
         //   greeting: 'Hello Server'
@@ -97,27 +105,57 @@
 
         const backwardbtn = document.getElementById("backward");
         backwardbtn.addEventListener("click", () =>{
-          socket.emit('backward_cmd', backwardbtn.value);        
+          backward.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          backward.style.color = "#001B48";
+          socket.emit('backward_cmd', backwardbtn.value);  
+          setTimeout(() => {
+            backward.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            backward.style.color = "rgba(119, 255, 255, 100)";   
+          }, timeout);
         });
 
         const rightbtn = document.getElementById("right");
         rightbtn.addEventListener("click", () =>{
-          socket.emit('right_cmd', rightbtn.value);        
+          right.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          right.style.color = "#001B48";
+          socket.emit('right_cmd', rightbtn.value);   
+          setTimeout(() => {
+            right.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            right.style.color = "rgba(119, 255, 255, 100)";    
+          }, timeout);     
         });
 
         const leftbtn = document.getElementById("left");
         leftbtn.addEventListener("click", () =>{
-          socket.emit('left_cmd', leftbtn.value);        
+          left.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          left.style.color = "#001B48";
+          socket.emit('left_cmd', leftbtn.value);   
+          setTimeout(() => {
+            left.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            left.style.color = "rgba(119, 255, 255, 100)";       
+          }, timeout);   
         });
 
         const upbtn = document.getElementById("up");
         upbtn.addEventListener("click", ()=>{
+          up.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          up.style.color = "#001B48";
           socket.emit('up', upbtn.value);
+          setTimeout(() => {
+            up.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            up.style.color = "rgba(119, 255, 255, 100)";   
+          }, timeout);  
         });
 
         const downbtn = document.getElementById("down");
         downbtn.addEventListener("click", ()=>{
+          down.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          down.style.color = "#001B48";
           socket.emit('down', downbtn.value);
+          setTimeout(() => {
+            down.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            down.style.color = "rgba(119, 255, 255, 100)";     
+          }, timeout);
         });
         // socket.emit('greeting-from-client',{
         //   greeting: 'Hello Server'

@@ -120,6 +120,7 @@ io.on("connection", (socket) =>{
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python',["dr_squ.py"]);
+
   });
 
   socket.on('triangle_cmd', function (message) {
@@ -167,12 +168,13 @@ io.on("connection", (socket) =>{
 server.listen(8000);
 
 //comment out this section when running on VM
+/*
 server.listen(port, hostname, (error) => {
   if (error) {
      console.log('ERROR: failed to get information', error)
   } else {
     console.log('Server is listening on port' + port)
    }
- })
+ })*/
 
 
