@@ -15,3 +15,7 @@ p.start(2.5) # Initialization
 
 p.ChangeDutyCycle(10)
 time.sleep(1)
+
+# except KeyboardInterrupt:
+p.stop()
+GPIO.cleanup() #free resources on gpio pins 
