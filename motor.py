@@ -47,7 +47,7 @@ def farfw():  # farther forward
 def stop():
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(0.5)
+    time.sleep(1)
 
 def backword():
     kit.motor1.throttle = 0.35
@@ -62,13 +62,13 @@ def pup():
     #time.sleep(1)
 
 # idk motor 1 is left or right side ... assume it's on the left
-def turn90():  # turn right
+def turndegree(degree_interval,back_interval):  # turn right
     # the goal is to turn 90, without moving the pen from it's originial position on paper
     # assume the pen is down before starting this function
     pup()
-#     forward(0.05)
+    forward(0.1)
     kit.motor2.throttle = 0.35
-    time.sleep(0.845)
+    time.sleep(degree_interval) #0.845
     kit.motor2.throttle = 0
     time.sleep(1)
     kit.motor1.throttle = 0
@@ -76,13 +76,12 @@ def turn90():  # turn right
     time.sleep(1)
     kit.motor1.throttle = -0.40  # backup
     kit.motor2.throttle = -0.35
-    time.sleep(0.75)
+    time.sleep(back_interval) #0.75
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
     time.sleep(0.5)
     # kit.motor1.trottle = 1.0" moves the motor forwards for one fifth of a second at full speed.
     # hope 0.3 works, but i guess its gonna turn more than i expected..
-    time.sleep(0.5)
     pdown()
     time.sleep(0.5)
     
@@ -102,35 +101,37 @@ def dr_squ():  # draw square
     #       |  |
     #       ````
     pdown()
+    time.sleep(2)
     forward(0.5)  # 0 to 1
-    turn90()
+    turndegree(0.84,0.72)
     forward(0.5)  # 2
-    turn90()
-    forward(0.5)  # 3
-    turn90()
+    turndegree(0.84,0.72)
+    forward(0.5)  # 3 
+    turndegree(0.84,0.72)
     forward(0.5)  # 4
-    turn90()  # reposition: facing to right
+    turndegree(0.84,0.72) # reposition: facing to right
     pup()
     stop()
     #farfw()  # position to next empty place
-dr_squ()
-stop()
 
 def dr_tri():
     #    0 1
     #     /_\
-    farfw()  # position 0 to 1
-    kit.motor1.throttle = -0.35  # turn 60??
+    #farfw()  # position 0 to 1
+    #kit.motor1.throttle = -0.35  # turn 60??
     pdown()
-    forward()  # 1
-    kit.motor1.throttle = -0.7  # turn 120
-    forward()  # 2
-    kit.motor1.throttle = -0.7
-    forward()  # 3
-    kit.motor1.throttle = -0.7  # reposition: facing to right
+    time.sleep(0.5)
+    forward(0.8)  # 1
+    #kit.motor1.throttle = -0.7  # turn 120
+    turndegree(1.15,0.8)
+    forward(0.8)  # 2
+    #kit.motor1.throttle = -0.7
+    turndegree(1.15,0.8)
+    forward(0.8)
+    stop()
+    #kit.motor1.throttle = -0.7  # reposition: facing to right
     pup()
-    farfw()  # position to next empty place
-
+    #farfw()  # position to next empty place
 
 def dr_cir():  # idea 1 go around for a circle
     # "car->" 0  _1_
@@ -146,10 +147,8 @@ def dr_cir():  # idea 1 go around for a circle
     time.sleep(2)
     # no idea if this could make a full circle..
     pup()
-    #forward()  # position to next empty place
+    #forward()  # position to next empty place 
 
-#dr_cir()
-#stop()
 
 def dr_cir2():  # idea 2 self rotation
     #     0    _1_
@@ -176,9 +175,9 @@ def dr_cir2():  # idea 2 self rotation
 
 
 def dr_rec():
-    # car-> 0____1
-    #       |    |
-    #       ``````
+# car-> 0____1
+#       |    |
+#       ``````
     pdown()
     farfw()  # 0 to 1
     turn90()
@@ -203,28 +202,50 @@ def dr_heart():
     # try circle first
 
 
-def dr_oral():
+def dr_oval():
     # 0  ___1___
     #   /       \2
     #  4\_______/
     #       3
-    forward()  # to 1
-    pdown()
-    for i in range(5):  # to 2
-        kit.motor1.throttle = -(0.35 + 0.1*i)
-        kit.motor2.throttle = -0.35
-    for i in range(5):  # to 3
-        kit.motor1.throttle = -(0.55 - 0.1*i)
-        kit.motor2.throttle = -0.35
-    for i in range(5):  # to 4
-        kit.motor1.throttle = -(0.35 + 0.1*i)
-        kit.motor2.throttle = -0.35
-    for i in range(5):  # to 1
-        kit.motor1.throttle = -(0.55 - 0.1*i)
-        kit.motor2.throttle = -0.35
+    #forward()  # to 1
+#     pdown()
+#     time.sleep(1)
+#     for i in range(3):  # to 2
+#         kit.motor1.throttle = 0.42
+#         kit.motor2.throttle = (0.35 + 0.2*i)
+#         time.sleep(0.2+0.2*i)
+#     stop()
+#     for i in range(3):  # to 3
+#         kit.motor1.throttle = 0.42
+#         kit.motor2.throttle = (0.95 - 0.2*i)
+#         time.sleep(0.6-0.2*i)
+#     stop()
+#     turn90()
+#     stop()
+#     for i in range(5):  # to 4
+#         kit.motor1.throttle = 0.42
+#         kit.motor2.throttle = (0.35 + 0.1*i)
+#         time.sleep(0.1)
+#     stop()
+#     for i in range(5):  # to 1
+#         kit.motor1.throttle = 0.42
+#         kit.motor2.throttle = (0.85 - 0.1*i)
+#         time.sleep(0.1)
+#     stop()
     pup()
-    forward()
-
+    #forward()
+        
+def dr_oval_2():
+    pdown()
+    kit.motor1.throttle = 0.55
+    time.sleep(0.8)
+    turndegree(0.845,0.75)
+    forward(0.5)
+    kit.motor1.throttle = 0.55
+    time.sleep(0.8)
+    turndegree(0.845,0.75)
+    forward(0.5)
+ 
 
 # testing all shapes:
 #dr_squ()
@@ -239,11 +260,29 @@ def dr_oral():
 #time.sleep(0.5)
 #dr_heart()  # skipped for now
 #time.sleep(0.5)
-#dr_oral()
-#time.sleep(0.5)
+#dr_oval()
+# for i in range (1):
+#     #dr_oval_2()
+#     #dr_oval()
+#     pdown()
+#     kit.motor1.throttle = 0.35
+#     kit.motor2.throttle = 1
+#     time.sleep(0.8)
+#     stop()
+#     
+#     stop()
+#     kit.motor1.throttle = 0.35
+#     kit.motor2.throttle = 1
+#     time.sleep(0.8)
+#     stop()
+#     forward(0.5)
+#     stop()
+#     pup()
+#     stop()
+dr_squ()
+kit.motor1.throttle = 0
+kit.motor2.throttle = 0
 
-#kit.motor1.throttle=0
-#kit.motor2.throttle=0
 # except KeyboardInterrupt:
 p.stop()
-GPIO.cleanup() #free resources on gpio pins
+GPIO.cleanup() #free resources on gpio pins 
