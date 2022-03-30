@@ -237,12 +237,12 @@
 
         const trianglebtn = document.getElementById("triangle");
         trianglebtn.addEventListener("click", () =>{
-          socket.emit('triangle_cmd', trainglebtn.value);        
+          socket.emit('triangle_cmd', trianglebtn.value);        
         });
 
-        const circledbtn = document.getElementById("circle");
+        const circlebtn = document.getElementById("circle");
         circlebtn.addEventListener("click", () =>{
-          socket.emit('circle_cmd', cieclebtn.value);        
+          socket.emit('circle_cmd', circlebtn.value);        
         });
 
         const rectanglebtn = document.getElementById("rectangle");

@@ -54,14 +54,14 @@ io.on("connection", (socket) =>{
   console.log("user connected");
   socket.on('forward_cmd', function (message) {
     console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',["test.py",10]);
+//    const spawn = require("child_process").spawn;
+//    const pythonProcess = spawn('python',["test.py",10]);
     // to test forward function, erase 10
 
     // can comment out this part when testing forward function in test.py 
-    pythonProcess.stdout.on("data", function(data){
-        console.log("result is: ",data.toString());
-    });
+//    pythonProcess.stdout.on("data", function(data){
+//        console.log("result is: ",data.toString());
+//    });
   });
 
   socket.on('backward_cmd', function (message) {
@@ -90,40 +90,40 @@ io.on("connection", (socket) =>{
   socket.on('square_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',"drawsqu.py");
+    const pythonProcess = spawn('python',["dr_squ.py"]);
   });
 
   socket.on('triangle_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',"drawtri.py");
+    const pythonProcess = spawn('python',["dr_tri.py"]);
   });
 
   socket.on('circle_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',"drawcir.py");
+    const pythonProcess = spawn('python',["dr_cir.py"]);
   });
 
   socket.on('rectangle_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',"drawrec.py");
+    const pythonProcess = spawn('python',["dr_rec.py"]);
   });
 
   socket.on('heart_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',"drawheart.py");
+    const pythonProcess = spawn('python',["dr_heart.py"]);
   });
 
   socket.on('oval_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',"drawoval.py");
+    const pythonProcess = spawn('python',["dr_oval.py"]);
   });
 
-  
+
   socket.on("disconnect", ()=>{
     console.log("user disconnects");
   })
@@ -135,7 +135,7 @@ io.on("connection", (socket) =>{
 })
 
 
-server.listen(3000);
+server.listen(8000);
 
 //comment out this section when running on VM
 // server.listen(port, hostname, (error) => {
