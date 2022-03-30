@@ -53,6 +53,9 @@ io.on("connection", (socket) =>{
 
   console.log("user connected");
   socket.on('forward_cmd', function (message) {
+    // socket.emit('greeting-from-server', {
+    //   greeting: 'Hello Client'
+    // });
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["forward.py"]);
@@ -96,6 +99,39 @@ io.on("connection", (socket) =>{
     // to test forward function, erase 10
   });
 
+  socket.on('input', function(input){
+    input = input.toLowerCase();
+    console.log(input);
+    const spawn = require("child_process").spawn;
+    if (input == "circle"){
+      console.log("exec circle");
+      const pythonProcess = spawn('python3', ["dr_cir.py"]);
+    }
+    else if (input == "triangle"){
+      console.log("exec triangle");
+      const pythonProcess = spawn('python3', ["dr_tri.py"]);
+    }
+    else if (input == "square"){ 
+      console.log("exec square");
+      const pythonProcess = spawn('python3', ["dr_squ.py"]);
+    }
+    else if (input == "rectangle"){
+      console.log("exec rectangle");
+      const pythonProcess = spawn('python3', ["dr_rec.py"]);
+    }
+    else if (input == "heart"){
+      console.log("exec heart");
+      const pythonProcess = spawn('python3', ["dr_heart.py"]);
+    }
+    else if (input == "oval"){
+      console.log("exec oval");
+      const pythonProcess = spawn('python3', ["dr_oval.py"]);
+    }
+    else{
+      console.log("unknown shape");
+    }
+
+  })
   socket.on('square_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
@@ -144,7 +180,7 @@ io.on("connection", (socket) =>{
 })
 
 
-server.listen(8000);
+// server.listen(8000);
 
 //comment out this section when running on VM
 server.listen(port, hostname, (error) => {

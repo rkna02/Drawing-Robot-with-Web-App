@@ -81,14 +81,11 @@
       <script src="/socket.io/socket.io.js"> </script>
       <script>
         const socket = io();
-        // socket.on('greeting-from-server', function (message) {
-        //   document.body.appendChild(document.createTextNode(message.greeting));
-        // });
+        socket.on('greeting-from-server', function (message) {
+          document.body.appendChild(document.createTextNode(message.greeting));
+        });
         const forwardbtn = document.getElementById("forward");
-        forwardbtn.addEventListener("keypress", () =>{
-          // socket.emit('greeting-from-btn',{
-          //   greeting: 'Hello Server from btn'
-          // });
+        forwardbtn.addEventListener("click", () =>{
           socket.emit('forward_cmd', forwardbtn.value);        
         });
         // socket.emit('greeting-from-client',{
