@@ -33,7 +33,7 @@ h3 {
 nav {
     background-color: #fff;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 31px;
 }
 
 .container {
@@ -161,7 +161,6 @@ footer {
     height: 750px;
     text-align: center;
     border: 1px solid black;
-    margin-top: 30px;
 }
 
 .page-hero h1 {
@@ -245,24 +244,27 @@ footer {
 }
 
 .mode-1 .button, .mode-2 .button {
+    display: flex;
+    width: 150px;
     background-color: white;
     font-size: 20px;
     font-weight: bold;
     padding: 15px;
     margin-left: 70px;
+    margin-bottom: 30px;
     border-radius: 15px;
     box-shadow: 0px 5px;
 }
 
-.mode-1 .button {
+.mode-1-descrription .button {
     color:#7F7373;
 }
 
-.mode-2 .button {
+.mode-2-description .button {
     color:#667F6D;
 }
 
-.mode-1 .button:active, .mode-2 .button:active {
+.mode-1-description .button:active, .mode-2-description .button:active {
     margin-top: 10px;
     box-shadow: 0px 0px;
 }
@@ -283,8 +285,8 @@ footer {
 }
 
 .mode-2 {
-    margin-top: -41px;
     background-color: #8FB399;
+    margin-top: -42px;
 }
 
 .mode-2-content {
@@ -298,30 +300,59 @@ footer {
     margin: 0px 75px 75px 0px;
 }
 
+@media only screen and (max-width: 1080px) {
+    .mode-1-content {
+        flex-wrap: wrap;
+    }
+
+    .mode-1-description {
+        margin-top: 20px;
+    }
+
+    .mode-2-content {
+        flex-wrap: wrap;
+    }
+
+}
+
+@media only screen and (max-width: 1080px) {
+    .mode-1-image {
+        margin: 0 auto;
+    }
+
+    .mode-1 img {
+        margin: 0;
+    }
+
+    .mode-2-image {
+        margin: 0 auto;
+    }
+
+    .mode-2 img {
+        margin: 0;
+    }
+}
+
 
 /* MODE 1 PAGE STYLES */
 
-.mode-1-instructions {
-    background-color: #7F7373;
-    height: 300px;
-    width: 100%;
-}
-
 .mode1_title{
+    display: flex;
     background-image: url("mode1_bg.jpg"); 
 }
 
 .mode1_title h1{
-    margin-left: 50px;
-    margin-bottom: 10pt;
+    margin: 0 auto;
     font-size: 60px;
     font-family: 'Courier New', Courier, monospace;
 }
+
 .mode-1-sub{
     display: flex;
     flex-direction: row;
     background-color: rgb(220, 253, 255);
 }
+
 .mode-1-sub h2{
     font-size: 30px;
     font-family: 'Franklin Gothic Medium';
@@ -335,15 +366,6 @@ footer {
 .shapes{
     margin-left: 20%;
 }
-
-/*.shapes img{
-    border-radius: 25px;
-    width: 25%;
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-bottom: 1%;
-}*/
-
 
 .shapes img{
     border-radius: 25px;
