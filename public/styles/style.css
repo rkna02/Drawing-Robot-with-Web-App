@@ -220,13 +220,13 @@ footer {
     justify-content: center;
 }
 
-.front-view, .back-view {
+.isometric-view, .front-view, .side-view, .back-view {
     display: flex;
     flex-flow: column;
     justify-content: center;
 }
 
-.front-view img, .back-view img{
+.isometric-view img, .front-view img, .side-view img, .back-view img{
     width: 450px;
     min-width: 200px;
     height: auto;
