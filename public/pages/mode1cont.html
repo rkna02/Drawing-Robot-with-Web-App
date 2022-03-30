@@ -226,21 +226,15 @@
         // });
         const squarebtn = document.getElementById("square");
         squarebtn.addEventListener("click", () =>{
-          // socket.emit('greeting-from-btn',{
-          //   greeting: 'Hello Server from btn'
-          // });
           socket.emit('square_cmd', squarebtn.value);        
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
 
         const trianglebtn = document.getElementById("triangle");
         trianglebtn.addEventListener("click", () =>{
           socket.emit('triangle_cmd', trainglebtn.value);        
         });
 
-        const circledbtn = document.getElementById("circle");
+        const circlebtn = document.getElementById("circle");
         circlebtn.addEventListener("click", () =>{
           socket.emit('circle_cmd', circlebtn.value);        
         });
