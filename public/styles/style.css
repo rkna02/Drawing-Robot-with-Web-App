@@ -439,39 +439,51 @@ footer {
 
 /* MODE 2 PAGE STYLES */
 
-.mode-2-title {
-    display: flex;
-    background-image: url("mode2_bg.png"); 
-    height: 70px;
-}
-
-.mode-2-title h1{
-    margin: 0 auto;
-    font-size: 60px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
 .mode-2-instruction {
     display: flex;
     flex-direction: column;
-    background-color: #97C997;
+    line-height: 20px;
+    background-image: url("mode2_instruction_bg.jpg");
+    background-size: cover;
+    font-family: 'Proxima Nova';
+    height: 600px;
     color: #FFFFFF;
 }
 
+.fill {
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: center;
+}
+
 .controlpad {
+    background-image: url("game-interface.jpg");
+    background-size: cover;
+    height: 900px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #8FB399;
 }
 
 .controlpad input {
-    background-color: #E6FFED;
-    height: 200px;
-    width: 200px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(119, 255, 255, 100);
+    border: 3px solid rgba(119, 255, 255, 100);
+    margin-right: 5px;
+    margin-bottom: 5px;
+    height: 170px;
+    width: 170px;
     font-size: 400%;
-    border-radius: 10px;
+}
+
+#forward {
+    margin: 55px 170px 5px 175px;
+}
+
+#up {
+    margin-top: 55px;
 }
 
 .controlpad-top {
@@ -491,11 +503,6 @@ footer {
 
 .controlpad-left {
     margin-left: 3%;
-}
-
-.controlpad .filler {
-    background-color: #8FB399;
-    border: 1px solid #8FB399;
 }
 
 @media only screen and (max-width: 920px) {

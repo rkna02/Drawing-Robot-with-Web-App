@@ -3,8 +3,8 @@ const http = require('http');  // http
 const fs = require('fs'); // file handler
 const path = require('path');  // PATH finder
 //comment out host name and port when testing on VM
-// const hostname = 'cpen291-17.ece.ubc.ca';
-// const port = 80;
+const hostname = 'cpen291-17.ece.ubc.ca';
+const port = 80;
 const {Server} = require("socket.io");
 // create server, the function that is passed to createServer will be called whenever we request from the server
 const server = http.createServer((req, res) => {
@@ -173,14 +173,14 @@ io.on("connection", (socket) =>{
 })
 
 
-server.listen(3000);
+//server.listen(3000);
 
 //comment out this section when running on VM
-// server.listen(port, hostname, (error) => {
-//   if (error) {
-//     console.log('ERROR: failed to get information', error)
-//   } else {
-//     console.log('Server is listening on port' + port)
-//   }
-// })
+server.listen(port, hostname, (error) => {
+  if (error) {
+     console.log('ERROR: failed to get information', error)
+  } else {
+    console.log('Server is listening on port' + port)
+   }
+ })
 
