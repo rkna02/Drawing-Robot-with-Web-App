@@ -379,7 +379,6 @@ footer {
     border: none;
     border-radius: 10px;
     margin-bottom: 1%;
-
 }
 
 .shape_text{
@@ -445,7 +444,7 @@ footer {
     line-height: 20px;
     background-image: url("mode2_instruction_bg.jpg");
     background-size: cover;
-    font-family: 'Proxima Nova';
+    font-family: cursive;
     height: 600px;
     color: #FFFFFF;
 }
@@ -454,17 +453,19 @@ footer {
     display: flex;
     background-color: black;
     color: white;
+    font-family: cursive;
     justify-content: center;
 }
 
 .controlpad {
     background-image: url("game-interface.jpg");
-    background-size: cover;
-    height: 900px;
+    background-size: 100%;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    
 }
 
 .controlpad input {
@@ -488,12 +489,12 @@ footer {
 
 .controlpad-top {
     display: flex;
-    margin-top: 10%;
+    margin-top: 50%;
 }
 
 .controlpad-bottom {
     display: flex;
-    margin-bottom: 10%;
+    margin-bottom: 50%;
 }
 
 .controlpad-right {
