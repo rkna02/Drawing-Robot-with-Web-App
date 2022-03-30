@@ -312,7 +312,6 @@ footer {
     .mode-2-content {
         flex-wrap: wrap;
     }
-
 }
 
 @media only screen and (max-width: 1080px) {
@@ -383,7 +382,6 @@ footer {
 
 }
 
-
 .shape_text{
     margin-left: 20%;
     text-shadow: 2px 2px 5px rgb(204, 7, 178);
@@ -401,10 +399,10 @@ footer {
     border-radius: 5px;
     margin-bottom: 2%;
   }
+
 .text form #fname{
     width: 40%;
 }
-
  
 .chatbox {
     width: 500px;
@@ -457,7 +455,7 @@ footer {
     display: flex;
     flex-direction: column;
     background-color: #97C997;
-    color: #EFFFFF;
+    color: #FFFFFF;
 }
 
 .controlpad {
