@@ -441,16 +441,36 @@ footer {
 
 /* MODE 2 PAGE STYLES */
 
+.mode-2-instruction h2 {
+    line-height: 100%;
+}
+
 .mode-2-instruction {
     display: flex;
     flex-direction: column;
-    line-height: 20px;
+    flex-wrap: wrap;
+    line-height: 200%;
     background-image: url("mode2_instruction_bg.jpg");
     background-size: cover;
     font-family: cursive;
-    height: 600px;
+    height: 630px;
     color: #FFFFFF;
 }
+
+@media only screen and (max-width: 618px) {
+    .mode-2-instruction {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        line-height: 32px;
+        background-image: url("mode2_instruction_bg.jpg");
+        background-size: cover;
+        font-family: cursive;
+        height: 630px;
+        color: #FFFFFF;
+    }
+}
+
 
 .fill {
     display: flex;
