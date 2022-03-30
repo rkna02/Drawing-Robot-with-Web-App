@@ -55,37 +55,76 @@ io.on("connection", (socket) =>{
   socket.on('forward_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python',["test.py",10]);
+    const pythonProcess = spawn('python',["forward.py"]);
     // to test forward function, erase 10
 
-    // can comment out this part when testing forward function in test.py 
-    pythonProcess.stdout.on("data", function(data){
-        console.log("result is: ",data.toString());
+    pythonProcess.on("exit", ()=>{
+      process.exit(0);
     });
+    // can comment out this part when testing forward function in test.py 
+    // pythonProcess.stdout.on("data", function(data){
+    //     console.log("result is: ",data.toString());
+    // });
   });
 
   socket.on('backward_cmd', function (message) {
     console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',["backward.py"]);
+    // to test forward function, erase 10
+
+    pythonProcess.on("exit", ()=>{
+      process.exit(0);
+    });
   });
 
 
   socket.on('right_cmd', function (message) {
     console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',["right.py"]);
+    // to test forward function, erase 10
+
+    pythonProcess.on("exit", ()=>{
+      process.exit(0);
+    });
   });
 
 
   socket.on('left_cmd', function (message) {
     console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',["left.py"]);
+    // to test forward function, erase 10
+
+    pythonProcess.on("exit", ()=>{
+      process.exit(0);
+    });
   });
 
   socket.on('up', function (message) {
     console.log(message.toString());
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',["penUp.py"]);
+    // to test forward function, erase 10
+
+    pythonProcess.on("exit", ()=>{
+      process.exit(0);
+    });
   });
 
 
   socket.on('down', function (message) {
     console.log(message.toString());
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',["penDown.py"]);
+    // to test forward function, erase 10
+
+    pythonProcess.on("exit", ()=>{
+      process.exit(0);
+    });
   });
+  
   socket.on("disconnect", ()=>{
     console.log("user disconnects");
   })
