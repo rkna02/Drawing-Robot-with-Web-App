@@ -59,12 +59,20 @@ io.on("connection", (socket) =>{
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["forward.py"]);
+    pythonProcess.on("exit",() =>{
+      console.log("Sending signal")
+      socket.emit('Done2', "done");
+      // process.exit(0);
+    });
   });
 
   socket.on('backward_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["backward.py"]);
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done2', "done");
+    });
     // to test forward function, erase 10
   });
 
@@ -73,6 +81,9 @@ io.on("connection", (socket) =>{
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["right.py"]);
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done2', "done");
+    });
     // to test forward function, erase 10
   });
 
@@ -82,6 +93,9 @@ io.on("connection", (socket) =>{
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["left.py"]);
     // to test forward function, erase 10
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done2', "done");
+    });
   });
 
   socket.on('up', function (message) {
@@ -89,6 +103,9 @@ io.on("connection", (socket) =>{
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["penUp.py"]);
     // to test forward function, erase 10
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done2', "done");
+    });
   });
 
 
@@ -97,6 +114,9 @@ io.on("connection", (socket) =>{
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["penDown.py"]);
     // to test forward function, erase 10
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done2', "done");
+    });
   });
 
   socket.on('input', function(input){
@@ -131,46 +151,62 @@ io.on("connection", (socket) =>{
       console.log("unknown shape");
     }
 
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done1', "done");
+    });
   })
   socket.on('square_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
-<<<<<<< HEAD
-    const pythonProcess = spawn('python',["dr_squ.py"]);
-
-=======
     const pythonProcess = spawn('python3',["dr_squ.py"]);
->>>>>>> f20ac523261e2fcabd87b7863c6adf87b44e7bb2
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done1', "done");
+    });
   });
 
   socket.on('triangle_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_tri.py"]);
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done1', "done");
+    });
   });
 
   socket.on('circle_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_cir.py"]);
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done1', "done");
+    });
   });
 
   socket.on('rectangle_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_rec.py"]);
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done1', "done");
+    });
   });
 
   socket.on('heart_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_heart.py"]);
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done1', "done");
+    });
   });
 
   socket.on('oval_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_oval.py"]);
+    pythonProcess.on("exit",() =>{
+      socket.emit('Done1', "done");
+    });
   });
 
 
@@ -185,7 +221,7 @@ io.on("connection", (socket) =>{
 })
 
 
-// server.listen(8000);
+server.listen(8000);
 
 //comment out this section when running on VM
 /*

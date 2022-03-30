@@ -224,6 +224,10 @@
         // socket.on('greeting-from-server', function (message) {
         //   document.body.appendChild(document.createTextNode(message.greeting));
         // });
+        socket.on('Done1', (msg) => {
+          //put done msg
+          console.log(msg);
+        });
         const squarebtn = document.getElementById("square");
         squarebtn.addEventListener("click", () =>{
           // socket.emit('greeting-from-btn',{
