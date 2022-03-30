@@ -192,16 +192,16 @@
                 var btn_submit = this.getElement('submit');
                 var btn_clear = this.getElement('clear');
                 btn_submit.onclick = function () {
-                  self.btn_submit();
+                  self.btn_clear();
                 };
                 btn_clear.onclick = function () {
                   self.btn_clear();
                 };
                 this.resetBgColor();
-                for (let i = 1; i <= 35; i++) {
-                  this.images.push('./img/' + i + '.png');
-                  // this.images.push('./img/1.png');
-                }
+                // for (let i = 1; i <= 35; i++) {
+                //   // this.images.push('./img/' + i + '.png');
+                //   this.images.push('./img/1.png');
+                // }
               },
               
             }
@@ -235,6 +235,11 @@
         //   greeting: 'Hello Server'
         // });
 
+        const submitbtn = document.getElementById("submit");
+        const input = document.getElementById("content")
+        submitbtn.addEventListener("click", () =>{
+          socket.emit('input', content.value);
+        })
         const trianglebtn = document.getElementById("triangle");
         trianglebtn.addEventListener("click", () =>{
           socket.emit('triangle_cmd', trianglebtn.value);        

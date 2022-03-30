@@ -82,6 +82,7 @@
       <script src="/socket.io/socket.io.js"> </script>
       <script>
         const socket = io();
+<<<<<<< HEAD
         const timeout = 200;
         // socket.on('greeting-from-server', function (message) {
         //   document.body.appendChild(document.createTextNode(message.greeting));
@@ -98,6 +99,14 @@
             forward.style.backgroundColor = "rgba(0, 0, 0, 0)";
             forward.style.color = "rgba(119, 255, 255, 100)";  
           }, timeout);
+=======
+        socket.on('greeting-from-server', function (message) {
+          document.body.appendChild(document.createTextNode(message.greeting));
+        });
+        const forwardbtn = document.getElementById("forward");
+        forwardbtn.addEventListener("click", () =>{
+          socket.emit('forward_cmd', forwardbtn.value);        
+>>>>>>> f20ac523261e2fcabd87b7863c6adf87b44e7bb2
         });
         // socket.emit('greeting-from-client',{
         //   greeting: 'Hello Server'
