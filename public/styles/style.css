@@ -116,7 +116,7 @@ nav .dropdown {
         display: none;
         position: absolute;
         background-color: white;
-        right: 0;
+        min-width: 155px;
         z-index: 1;
     }
 
@@ -256,7 +256,7 @@ footer {
     box-shadow: 0px 5px;
 }
 
-.mode-1-descrription .button {
+.mode-1-description .button {
     color:#7F7373;
 }
 
@@ -506,6 +506,12 @@ footer {
         font-size: 200%;
         border-radius: 10px;
     }
+}
+
+
+/* Showcase page styles */
+.oi {
+    height: 400px;
 }
 
 

@@ -3,7 +3,7 @@
   <html>
 
     <head>
-      <title>Drawing Robot Mode 1</title>
+      <title>CPEN291 Drawbot</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../styles/style.css">
     </head>
@@ -49,18 +49,18 @@
         <div class="option1">
           <h2>① Choose one shape below:</h2>
           <div class="shapes"> <!--option1-->
-            <input type="image" src="../styles/shape_square.jpg" class = "block" onclick="printShape('SQUARE')"> 
+            <input type="image" src="../styles/shape_square.jpg" id = "square" class = "block" onclick="printShape('SQUARE')" value = "square"> 
         
-            <input type="image" src="../styles/shape_triangle.jpg" class = "block" onclick="printShape('TRIANGLE')"> 
+            <input type="image" src="../styles/shape_triangle.jpg" id = "triangle" class = "block" onclick="printShape('TRIANGLE')" value = "triangle"> 
        
-            <input type="image" src="../styles/shape_circle.jpg" class = "block" onclick="printShape('CIRCLE')"> 
+            <input type="image" src="../styles/shape_circle.jpg" id = "circle" class = "block" onclick="printShape('CIRCLE')" value = "circle"> 
             <br>
 
-            <input type="image" src="../styles/shape_rectangle.jpg" class = "block" onclick="printShape('RECTANGLE')"> 
+            <input type="image" src="../styles/shape_rectangle.jpg" id = "rectangle" class = "block" onclick="printShape('RECTANGLE')" value = "rectangle"> 
   
-            <input type="image" src="../styles/shape_heart.jpg" class = "block" onclick="printShape('HEART')"> 
+            <input type="image" src="../styles/shape_heart.jpg" id = "heart" class = "block" onclick="printShape('HEART')" value = "heart"> 
 
-            <input type="image" src="../styles/shape_oval.jpg" class = "block" onclick="printShape('OVAL')"> 
+            <input type="image" src="../styles/shape_oval.jpg" id = "oval" class = "block" onclick="printShape('OVAL')" value = "oval"> 
 
           </div>
           <div class = "shape_text">
@@ -217,6 +217,52 @@
       <footer>
         <p>Updated: March 29th, 2022</p>
       </footer>
+
+      <script src="/socket.io/socket.io.js"> </script>
+      <script>
+        const socket = io();
+        // socket.on('greeting-from-server', function (message) {
+        //   document.body.appendChild(document.createTextNode(message.greeting));
+        // });
+        const squarebtn = document.getElementById("square");
+        squarebtn.addEventListener("click", () =>{
+          // socket.emit('greeting-from-btn',{
+          //   greeting: 'Hello Server from btn'
+          // });
+          socket.emit('square_cmd', squarebtn.value);        
+        });
+        // socket.emit('greeting-from-client',{
+        //   greeting: 'Hello Server'
+        // });
+
+        const trianglebtn = document.getElementById("triangle");
+        trianglebtn.addEventListener("click", () =>{
+          socket.emit('triangle_cmd', trainglebtn.value);        
+        });
+
+        const circledbtn = document.getElementById("circle");
+        circlebtn.addEventListener("click", () =>{
+          socket.emit('circle_cmd', cieclebtn.value);        
+        });
+
+        const rectanglebtn = document.getElementById("rectangle");
+        rectanglebtn.addEventListener("click", () =>{
+          socket.emit('rectangle_cmd', rectanglebtn.value);        
+        });
+
+        const heartbtn = document.getElementById("heart");
+        heartbtn.addEventListener("click", () =>{
+          socket.emit('heart_cmd', heartbtn.value);        
+        });
+
+        const ovalbtn = document.getElementById("oval");
+        ovalbtn.addEventListener("click", () =>{
+          socket.emit('oval_cmd', ovalbtn.value);        
+        });
+        // socket.emit('greeting-from-client',{
+        //   greeting: 'Hello Server'
+        // });
+      </script>
 
     </body>
 
