@@ -57,7 +57,7 @@
           </div>
           <div class="controlpad-bottom">
             <input type = "button" id = "left" onclick=" move_left()" value ="A">
-            <input type = "button" id = "backword" onclick=" move_backword()" value ="S">
+            <input type = "button" id = "backward" onclick=" move_backword()" value ="S">
             <input type = "button" id = "right" onclick=" move_right()" value ="D">
             <input type = "button" id = "down" onclick="lift_down()" value="⬇️">
           </div>
@@ -69,7 +69,51 @@
       <footer>
         <p>Updated: March 29th, 2022</p>
       </footer>
+      <script src="/socket.io/socket.io.js"> </script>
+      <script>
+        const socket = io();
+        // socket.on('greeting-from-server', function (message) {
+        //   document.body.appendChild(document.createTextNode(message.greeting));
+        // });
+        const forwardbtn = document.getElementById("forward");
+        forwardbtn.addEventListener("click", () =>{
+          // socket.emit('greeting-from-btn',{
+          //   greeting: 'Hello Server from btn'
+          // });
+          socket.emit('forward_cmd', forwardbtn.value);        
+        });
+        // socket.emit('greeting-from-client',{
+        //   greeting: 'Hello Server'
+        // });
 
+        const backwardbtn = document.getElementById("backward");
+        backwardbtn.addEventListener("click", () =>{
+          socket.emit('backward_cmd', backwardbtn.value);        
+        });
+
+        const rightbtn = document.getElementById("right");
+        rightbtn.addEventListener("click", () =>{
+          socket.emit('right_cmd', rightbtn.value);        
+        });
+
+        const leftbtn = document.getElementById("left");
+        leftbtn.addEventListener("click", () =>{
+          socket.emit('left_cmd', leftbtn.value);        
+        });
+
+        const upbtn = document.getElementById("up");
+        upbtn.addEventListener("click", ()=>{
+          socket.emit('up', upbtn.value);
+        });
+
+        const downbtn = document.getElementById("down");
+        downbtn.addEventListener("click", ()=>{
+          socket.emit('down', downbtn.value);
+        });
+        // socket.emit('greeting-from-client',{
+        //   greeting: 'Hello Server'
+        // });
+      </script>
     </body>
 
   </html>
