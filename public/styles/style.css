@@ -392,10 +392,10 @@ footer {
     font-family: fantasy;
 }
 
-
 .option2{
     width: 50%;
 }
+
 .chatbox canvas {
     outline: 5px solid #c2ebc4;
     border-radius: 5px;
@@ -441,11 +441,24 @@ footer {
 
 /* MODE 2 PAGE STYLES */
 
-.mode-2-instructions {
+.mode-2-title {
     display: flex;
-    background-color: #667F6D;
-    height: 300px;
-    width: 100%;
+    background-image: url("mode2_bg.png"); 
+    height: 70px;
+}
+
+.mode-2-title h1{
+    margin: 0 auto;
+    font-size: 60px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.mode-2-instruction {
+    display: flex;
+    flex-direction: column;
+    background-color: #97C997;
+    color: #EFFFFF;
+    line-height: 10px;
 }
 
 .controlpad {
@@ -461,6 +474,7 @@ footer {
     height: 200px;
     width: 200px;
     font-size: 400%;
+    border-radius: 10px;
 }
 
 #forward {
@@ -482,24 +496,4 @@ footer {
     margin-left: 200px;
 }
 
-/*
-#forward{
-    order: 1;
-    width: 10%;
-    height: 10%;
-    font-size: 200%;
-}
-#backward{
-    order: 4;
-    margin-top: 15%;
-}
-#right{
-    order: 2;
-    margin-left: 50%;
-}
-#left{
-    order: 3;
-    margin-right: 50%;
-}
-*/
 
