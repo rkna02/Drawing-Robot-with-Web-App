@@ -458,12 +458,11 @@ footer {
     flex-direction: column;
     background-color: #97C997;
     color: #EFFFFF;
-    line-height: 10px;
 }
 
 .controlpad {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: #8FB399;
@@ -477,23 +476,46 @@ footer {
     border-radius: 10px;
 }
 
-#forward {
-    margin-top: 100px;
-    margin-left: 200px;
-    margin-right: 100px;
+.controlpad-top {
+    display: flex;
+    margin-top: 10%;
 }
 
 .controlpad-bottom {
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 10%;
 }
 
-#up {
-    margin-left: 295px;
+.controlpad-right {
+    margin-left: 10%;
+    margin-right: 3%;
 }
 
-#down{
-    margin-left: 200px;
+.controlpad-left {
+    margin-left: 3%;
 }
+
+.controlpad .filler {
+    background-color: #8FB399;
+    border: 1px solid #8FB399;
+}
+
+@media only screen and (max-width: 920px) {
+    .controlpad input {
+        background-color: #E6FFED;
+        height: 100px;
+        width: 100px;
+        font-size: 200%;
+        border-radius: 10px;
+    }
+}
+
+
+
+
+
+
+
+
 
 
