@@ -15,3 +15,6 @@ p.start(2.5) # Initialization
 
 p.ChangeDutyCycle(5.5)
 time.sleep(1)
+
+p.stop()
+GPIO.cleanup() #free resources on gpio pins 
