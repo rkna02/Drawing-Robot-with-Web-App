@@ -86,6 +86,44 @@ io.on("connection", (socket) =>{
   socket.on('down', function (message) {
     console.log(message.toString());
   });
+
+  socket.on('square_cmd', function (message) {
+    console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',"drawsqu.py");
+  });
+
+  socket.on('triangle_cmd', function (message) {
+    console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',"drawtri.py");
+  });
+
+  socket.on('circle_cmd', function (message) {
+    console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',"drawcir.py");
+  });
+
+  socket.on('rectangle_cmd', function (message) {
+    console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',"drawrec.py");
+  });
+
+  socket.on('heart_cmd', function (message) {
+    console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',"drawheart.py");
+  });
+
+  socket.on('oval_cmd', function (message) {
+    console.log(message);
+    const spawn = require("child_process").spawn;
+    const pythonProcess = spawn('python',"drawoval.py");
+  });
+
+  
   socket.on("disconnect", ()=>{
     console.log("user disconnects");
   })
