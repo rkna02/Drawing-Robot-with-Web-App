@@ -36,7 +36,9 @@ def forward(interval):
 #forward(0.2)  # position 0 to 1
 pdown()
 time.sleep(1)
-kit.motor1.throttle = 0.55
+kit.motor1.throttle = 0.57
 time.sleep(2)
 pup()
 stop()
+p.stop()
+GPIO.cleanup()

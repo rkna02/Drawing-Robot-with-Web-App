@@ -54,18 +54,23 @@ def turndegree(degree_interval, back_interval):  # turn right
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
     time.sleep(0.5)
-    pdown()
 
 # car-> 0__1
 #       |  |
 #       ````
 pdown()
 forward(0.5)  # 0 to 1
-turndegree(0.84,0.72)
+turndegree(0.59,0.6)
+pdown()
 forward(0.5)  # 2
-turndegree(0.84,0.72)
+turndegree(0.59,0.6)
+pdown()
 forward(0.5)  # 3 
-turndegree(0.84,0.72)
+turndegree(0.59,0.6)
+pdown()
 forward(0.5)  # 4
-turndegree(0.84,0.72) # reposition: facing to right
+turndegree(0.59,0.6) # reposition: facing to right
 pup()
+
+p.stop()
+GPIO.cleanup() #free resources on gpio pins 
