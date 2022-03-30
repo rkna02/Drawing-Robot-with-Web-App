@@ -1,4 +1,7 @@
 /* global element styles */
+html, body {
+    height: 100%;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -459,28 +462,27 @@ footer {
 
 .controlpad {
     background-image: url("game-interface.jpg");
-    background-size: 100%;
+    background-size:100% 100%;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
 }
 
 .controlpad input {
     background-color: rgba(0, 0, 0, 0);
     color: rgba(119, 255, 255, 100);
-    border: 3px solid rgba(119, 255, 255, 100);
+    border: 2px solid rgba(119, 255, 255, 100);
     margin-right: 5px;
     margin-bottom: 5px;
-    height: 170px;
-    width: 170px;
+    height: 150px;
+    width: 150px;
     font-size: 400%;
 }
 
 #forward {
-    margin: 55px 170px 5px 175px;
+    margin: 55px 170px 5px 155px;
 }
 
 #up {
@@ -503,16 +505,88 @@ footer {
 }
 
 .controlpad-left {
-    margin-left: 3%;
+    margin-left: 5%;
 }
 
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 1100px) {
+
     .controlpad input {
-        background-color: #E6FFED;
-        height: 100px;
-        width: 100px;
+        background-color: rgba(0, 0, 0, 0);
+        color: rgba(119, 255, 255, 100);
+        border: 1px solid rgba(119, 255, 255, 100);
+        margin-right: 5px;
+        margin-bottom: 5px;
+        height: 90px;
+        width: 90px;
         font-size: 200%;
-        border-radius: 10px;
+    }
+
+    #forward {
+        margin: 40px 170px 5px 95px;
+    }
+
+    #up {
+        margin-top: 40px;
+    }
+    
+    .controlpad-top {
+        display: flex;
+        margin-top: 50%;
+    }
+    
+    .controlpad-bottom {
+        display: flex;
+        margin-bottom: 50%;
+    }
+    
+    .controlpad-right {
+        margin-left: 0%;
+        margin-right: 3%;
+    }
+    
+    .controlpad-left {
+        margin-left: 5%;
+    }
+    
+}
+
+@media only screen and (max-width: 670px) {
+
+    .controlpad input {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgba(119, 255, 255, 100);
+        border: 1px solid rgba(119, 255, 255, 100);
+        margin-right: 5px;
+        margin-bottom: 5px;
+        height: 60px;
+        width: 60px;
+        font-size: 150%;
+    }
+
+    #forward {
+        margin: 20px 100px 5px 65px;
+    }
+
+    #up {
+        margin-top: 20px;
+    }
+    
+    .controlpad-top {
+        display: flex;
+        margin-top: 50%;
+    }
+    
+    .controlpad-bottom {
+        display: flex;
+        margin-bottom: 50%;
+    }
+    
+    .controlpad-right {
+        margin-right: 18%;
+    }
+    
+    .controlpad-left {
+        margin-left: 20%;
     }
 }
 
