@@ -449,7 +449,7 @@ footer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    line-height: 200%;
+    line-height: 190%;
     background-image: url("mode2_instruction_bg.jpg");
     background-size: cover;
     font-family: cursive;
