@@ -22,3 +22,6 @@ kit.motor2.throttle = 0.50
 time.sleep(0.5)
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
+# except KeyboardInterrupt:
+p.stop()
+GPIO.cleanup() #free resources on gpio pins 
