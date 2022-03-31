@@ -54,20 +54,27 @@ io.on("connection", (socket) =>{
   // });
 
   console.log("user connected");
+  socket.emit('clientEvent', 'hello from vm server');
+
+  socket.on('serverEvent', (msg) => {
+    console.log("client sent", msg);
+  });
+
   socket.on('forward_cmd', function (message) {
-    // socket.emit('greeting-from-server', {
-    //   greeting: 'Hello Client'
-    // });
     console.log(message);
+    
+    
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["forward.py"]);
     pythonProcess.on("exit",() =>{
-      console.log("Sending signal")
+      // console.log("Sending signal")
       socket.emit('Done2', "done");
       // process.exit(0);
     });
-  });
+    console.log("Sent signal to client");
 
+  });
+  
   socket.on('backward_cmd', function (message) {
     console.log(message);
     const spawn = require("child_process").spawn;
@@ -159,24 +166,30 @@ io.on("connection", (socket) =>{
   })
 
   socket.on('square_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_squ.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    // const spawn = require("child_process").spawn;
+    // const pythonProcess = spawn('python3',["dr_squ.py"]);
+    // pythonProcess.on("exit",() =>{
+    //   socket.emit('Done1', "done");
+    // });
+    socket.broadcast.emit('cmd_squr', message);
+  });
+
+  socket.on('CD1', (msg) =>{
+    socket.broadcast.emit('Done1', "done");
   });
 
   socket.on('triangle_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_tri.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    // const spawn = require("child_process").spawn;
+    // const pythonProcess = spawn('python3',["dr_tri.py"]);
+    // pythonProcess.on("exit",() =>{
+    //   socket.emit('Done1', "done");
+    // });
+    socket.broadcast.emit('cmd_squr', message);
   });
 
   socket.on('circle_cmd', function (message) {
     const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_cir.py"]);
+    const pythonProcess = spawn('python3',["test.py", 10]);
     pythonProcess.on("exit",() =>{
       socket.emit('Done1', "done");
     });
@@ -215,13 +228,12 @@ io.on("connection", (socket) =>{
   // socket.on('greeting-from-btn', function (message) {
   //   console.log(message);
   // });
-})
+});
 
-
-//server.listen(8000);
+server.listen(3000);
 
 //comment out this section when running on VM
-
+/*
 server.listen(port, hostname, (error) => {
   if (error) {
      console.log('ERROR: failed to get information', error)
@@ -229,4 +241,4 @@ server.listen(port, hostname, (error) => {
     console.log('Server is listening on port' + port)
    }
  });
-
+*/
