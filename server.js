@@ -155,8 +155,8 @@ io.on("connection", (socket) =>{
       socket.emit('Done1', "done");
     });
   })
+
   socket.on('square_cmd', function (message) {
-    console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_squ.py"]);
     pythonProcess.on("exit",() =>{
@@ -165,7 +165,6 @@ io.on("connection", (socket) =>{
   });
 
   socket.on('triangle_cmd', function (message) {
-    console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_tri.py"]);
     pythonProcess.on("exit",() =>{
@@ -174,7 +173,6 @@ io.on("connection", (socket) =>{
   });
 
   socket.on('circle_cmd', function (message) {
-    console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_cir.py"]);
     pythonProcess.on("exit",() =>{
@@ -192,7 +190,6 @@ io.on("connection", (socket) =>{
   });
 
   socket.on('heart_cmd', function (message) {
-    console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_heart.py"]);
     pythonProcess.on("exit",() =>{
@@ -201,14 +198,12 @@ io.on("connection", (socket) =>{
   });
 
   socket.on('oval_cmd', function (message) {
-    console.log(message);
     const spawn = require("child_process").spawn;
     const pythonProcess = spawn('python3',["dr_oval.py"]);
     pythonProcess.on("exit",() =>{
       socket.emit('Done1', "done");
     });
   });
-
 
   socket.on("disconnect", ()=>{
     console.log("user disconnects");
@@ -232,5 +227,4 @@ server.listen(port, hostname, (error) => {
     console.log('Server is listening on port' + port)
    }
  })*/
-
 

@@ -436,8 +436,22 @@ footer {
     margin-right: 10px;
     margin-bottom: 3%;
     cursor: pointer;
-  }
+}
 
+.status {
+    display: flex;
+    background-color: rgb(32, 153, 32);
+    color: white;
+    justify-content: center;
+}
+
+#drawing {
+    display: none;
+}
+
+#done {
+    display: none;
+}
 
 /* MODE 2 PAGE STYLES */
 
