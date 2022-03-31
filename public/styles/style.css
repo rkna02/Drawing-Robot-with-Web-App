@@ -1,4 +1,25 @@
-/* global element styles */
+/* Site Stylesheet
+    1. Global Styles
+        a. Global Elements
+        b. Navigation Menu 
+        c. Footer 
+    2. Home Page Styles
+        a. Page Hero 
+        b. Robot Structure 
+        c. Modes Description
+    3. Mode 1 Page Styles 
+        a. 
+    4. Mode 2 Page Styles 
+        a. Instructions
+        b. Control Pad
+======================================= */
+
+
+/* 1. Global Styles
+======================================= */
+
+/* 1a. Global Elements */
+
 html, body {
     height: 100%;
 }
@@ -39,11 +60,12 @@ nav {
     margin: 0 auto 31px;
 }
 
+
+/* 1b. Navigation Menu */
+
 .container {
     display: flex;
 }
-
-/* global navigation section */
 
 header .container {
     display: flex;
@@ -90,7 +112,6 @@ nav .dropdown {
 }
 
 @media only screen and (max-width: 1085px) {
-
     nav {
         margin-right: 20px;
     }
@@ -134,16 +155,18 @@ nav .dropdown {
         background-color: #ddd;
     }
 
-    /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {
         display: block;
     }
 
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .button-dropdown {background-color: black; color: white}
+    .dropdown:hover .button-dropdown {
+        background-color: black; 
+        color: white
+    }
 }
 
-/* global footer section */ 
+
+/* 1c. Footer */
 
 footer {
     display: flex;
@@ -153,9 +176,10 @@ footer {
 }
 
 
-/* HOME PAGE STYLES */
+/* 2. Home Page Styles 
+======================================= */
 
-/* page hero section */
+/* 2a. Page Hero */
 
 .page-hero {
     background: url(page-hero-img.png) no-repeat top center;
@@ -211,7 +235,8 @@ footer {
     text-decoration: none;
 }
 
-/* robot structure section */
+
+/* 2b. Robot Structure */
 
 .gallery .container {
     display: flex;
@@ -233,7 +258,8 @@ footer {
     margin: 0px 60px 40px;
 }
 
-/* mode description sections */
+
+/* 2c. Modes Description */
 
 .mode-1 h2, .mode-2 h2 {
     padding-top: 25px;
@@ -336,7 +362,8 @@ footer {
 }
 
 
-/* MODE 1 PAGE STYLES */
+/* 3. Mode 1 Page Styles
+======================================= */ 
 
 .mode1_title{
     display: flex;
@@ -400,40 +427,12 @@ footer {
 .option2{
     width: 50%;
 }
-
-/*
-.chatbox canvas {
-    outline: 5px solid #c2ebc4;
-    border-radius: 5px;
-    margin-bottom: 2%;
-  }
-
-.text form #fname{
-    width: 40%;
-}
-*/
  
 .chatbox {
     width: 90%;
     margin: 0 auto;
     padding-top: 15px;
 }
-
-/*
-.chatbox canvas {
-    outline: 1px solid #CCCCCC;
-    border-radius: 5px;
-}
-
-.chatbox #content {
-    resize: none;
-    width: calc(100% - 30px);
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #a4cdec;
-}
-*/
 
 .chatbox > button{
     border: 2px solid rgb(226, 139, 139);
@@ -480,7 +479,11 @@ footer {
     display: none;
 }
 
-/* MODE 2 PAGE STYLES */
+
+/* 4. Mode 2 Page Styles 
+======================================= */
+
+/* 4a. Instructions */
 
 .mode-2-instruction h2 {
     line-height: 100%;
@@ -511,6 +514,9 @@ footer {
         color: #FFFFFF;
     }
 }
+
+
+/* 4b. Control Pad */
 
 .fill {
     display: flex;
