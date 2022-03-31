@@ -42,12 +42,13 @@
       <section class="mode-1-sub" id="Mode1">
         <script>
           function printShape(shape) {
-          document.getElementById("demo").innerHTML = shape;
+            document.getElementById("demo").innerHTML = shape;
           }
         </script>
+
         <div class="option1">
           <h2>① Choose one shape below:</h2>
-          <div class="shapes"> <!--option1-->
+          <div class="shapes"> 
             <input type="image" src="../styles/shape_square.jpg" id = "square" class = "block" onclick="printShape('SQUARE')" value = "square"> 
         
             <input type="image" src="../styles/shape_triangle.jpg" id = "triangle" class = "block" onclick="printShape('TRIANGLE')" value = "triangle"> 
@@ -68,14 +69,12 @@
         </div>
 
         <div class="option2">
-          <h2>② Click submit to write the text:</h2> <!--option2 title-->
+          <h2>② Click submit to write the text:</h2> 
           <div class="chatbox">
             <h1>TEXT</h1>
-            <!-- <label for="fname"> <br> Input text:</label> -->
-            <!-- <input type="text" id="content" placeholder="Enter content max length 40" maxlength="40"> -->
             <button type="button" id="submit">submit</button>
-            <!-- <button type="button" id="clear">clear</button> -->
           </div>
+
           <script>
             var al;
             var Wrapper = {
@@ -102,6 +101,7 @@
                 }
                 return null;
               },
+
               fillText(ctx, text) {
                 text = /^[a-zA-Z]*$/.test(text) ? text.toLocaleUpperCase() : text;
                 ctx.fillStyle = 'white';
@@ -109,6 +109,7 @@
                 //ctx.translate(20, 50);
                 ctx.fillText(text, 20, 50);
               },
+
               drawImage(text) {
                 var canvas = document.createElement('canvas');
                 var ctx = canvas.getContext('2d');
@@ -131,10 +132,12 @@
                   };
                 });
               },
+
               resetBgColor() {
                 this.ctx.fillStyle = this.bgColor;
                 this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
               },
+
               btn_submit() {
                 var self = this;
                 let content = this.getElement('content');
@@ -176,6 +179,7 @@
                   });
                 });
               },
+
               btn_clear() {
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
                 this.resetBgColor();
@@ -196,18 +200,13 @@
                   self.btn_clear();
                 };
                 this.resetBgColor();
-                // for (let i = 1; i <= 35; i++) {
-                //   // this.images.push('./img/' + i + '.png');
-                //   this.images.push('./img/1.png');
-                // }
               },
-              
             }
+
             window.onload = function () {
               Wrapper.init();
             };
           </script>
-          <!-- <script src="./app1.js"></script> -->
         </div>
 
       </section>
@@ -218,17 +217,16 @@
       </div>
 
       <footer>
-        <p>Updated: March 29th, 2022</p>
+        <p>Updated: March 31st, 2022</p>
       </footer>
 
       <script src="/socket.io/socket.io.js"> </script>
       <script>
         const socket = io();
-        // socket.on('greeting-from-server', function (message) {
-        //   document.body.appendChild(document.createTextNode(message.greeting));
-        // });
+
+        // Update drawing status to "Done" when it is done drawing 
+
         socket.on('Done1', (msg) => {
-          //put done msg
           document.getElementById("drawing").style.display = "none";
           document.getElementById("done").style.display = "block";
           setTimeout(() => {
@@ -236,23 +234,13 @@
           }, 1400);
         });
 
+        // Button sockets
+
         const squarebtn = document.getElementById("square");
         squarebtn.addEventListener("click", () =>{
-          // socket.emit('greeting-from-btn',{
-          //   greeting: 'Hello Server from btn'
-          // });
           document.getElementById("drawing").style.display = "block";
           socket.emit('square_cmd', squarebtn.value);        
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
-
-        const submitbtn = document.getElementById("submit");
-        const input = document.getElementById("content")
-        submitbtn.addEventListener("click", () =>{
-          socket.emit('input', content.value);
-        })
 
         const trianglebtn = document.getElementById("triangle");
         trianglebtn.addEventListener("click", () =>{
@@ -283,9 +271,13 @@
           document.getElementById("drawing").style.display = "block";
           socket.emit('oval_cmd', ovalbtn.value);        
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
+
+        const submitbtn = document.getElementById("submit");
+        const input = document.getElementById("content")
+        submitbtn.addEventListener("click", () =>{
+          socket.emit('input', content.value);
+        })
+
       </script>
 
     </body>
