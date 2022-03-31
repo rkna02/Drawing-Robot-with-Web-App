@@ -15,7 +15,6 @@ kit = MotorKit(i2c=board.I2C())
 
 
 p = GPIO.PWM(servoPin, 50) # GPIO 17 for PWM with 50Hz
-p.start(2.5) # Initialization
 # forward function
 kit.motor1.throttle = 0.50 # m1 is right side
 kit.motor2.throttle = 0.50

@@ -16,7 +16,7 @@ p = GPIO.PWM(servoPin, 50) # GPIO 17 for PWM with 50Hz
 p.start(2.5) # Initialization
 
 def pdown():
-    p.ChangeDutyCycle(5.5)
+    p.ChangeDutyCycle(6)
     time.sleep(0.5)
 
 def pup():
@@ -62,12 +62,12 @@ def backward(interval):
 pdown()
 forward(0.5)  # 1
 pup()
-backward(0.4)
-turndegree(0.75,0.73)
+backward(0.42)
+turndegree(0.762,0.73)
 forward(0.5)  # 2
 pup()
-backward(0.4)
-turndegree(0.75,0.73)
+backward(0.42)
+turndegree(0.762,0.73)
 forward(0.5)
 stop()
 

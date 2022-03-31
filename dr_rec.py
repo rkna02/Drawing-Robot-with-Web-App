@@ -59,17 +59,17 @@ def turndegree(degree_interval, back_interval):  # turn right
 #       |  |
 #       ````
 pdown()
-forward(0.3)  # 0 to 1
-turndegree(0.59,0.6)
+forward(0.4)  # 0 to 1
+turndegree(0.599,0.61)
 pdown()
-forward(0.6)  # 2
-turndegree(0.59,0.6)
+forward(0.7)  # 2
+turndegree(0.599,0.61)
 pdown()
-forward(0.3)  # 3 
-turndegree(0.59,0.6)
+forward(0.4)  # 3 
+turndegree(0.599,0.61)
 pdown()
-forward(0.6)  # 4
-turndegree(0.59,0.6) # reposition: facing to right
+forward(0.7)  # 4
+turndegree(0.599,0.61) # reposition: facing to right
 pup()
 
 p.stop()

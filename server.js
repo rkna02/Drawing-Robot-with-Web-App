@@ -218,15 +218,15 @@ io.on("connection", (socket) =>{
 })
 
 
-//server.listen(8000);
+server.listen(3000);
 
 //comment out this section when running on VM
 
-server.listen(port, hostname, (error) => {
-  if (error) {
-     console.log('ERROR: failed to get information', error)
-  } else {
-    console.log('Server is listening on port' + port)
-   }
- });
+//server.listen(port, hostname, (error) => {
+//  if (error) {
+//     console.log('ERROR: failed to get information', error)
+//  } else {
+//    console.log('Server is listening on port' + port)
+//   }
+// });
 
