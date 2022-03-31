@@ -355,6 +355,11 @@ footer {
     background-color: rgb(220, 253, 255);
 }
 
+.option2 h1 {
+    padding: 20px;
+    background-color: rgb(226, 139, 139);
+}
+
 .mode-1-sub h2{
     font-size: 30px;
     font-family: 'Franklin Gothic Medium';
@@ -366,7 +371,7 @@ footer {
 }
 
 .shapes{
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .shapes img{
@@ -377,15 +382,15 @@ footer {
 }
 
 .block{
-    width: 150px;
-    height: 150px;
+    width: 145px;
+    height: 145px;
     border: none;
     border-radius: 10px;
     margin-bottom: 1%;
 }
 
 .shape_text{
-    margin-left: 20%;
+    margin-left: 15%;
     text-shadow: 2px 2px 5px rgb(204, 7, 178);
     font-size: 25px;
     font-weight: 400;
@@ -396,6 +401,7 @@ footer {
     width: 50%;
 }
 
+/*
 .chatbox canvas {
     outline: 5px solid #c2ebc4;
     border-radius: 5px;
@@ -405,13 +411,15 @@ footer {
 .text form #fname{
     width: 40%;
 }
+*/
  
 .chatbox {
-    width: 500px;
+    width: 90%;
     margin: 0 auto;
     padding-top: 15px;
 }
 
+/*
 .chatbox canvas {
     outline: 1px solid #CCCCCC;
     border-radius: 5px;
@@ -425,6 +433,7 @@ footer {
     border-radius: 6px;
     border: 1px solid #a4cdec;
 }
+*/
 
 .chatbox > button{
     border: 2px solid rgb(226, 139, 139);
@@ -436,6 +445,24 @@ footer {
     margin-right: 10px;
     margin-bottom: 3%;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1130px) {
+    .mode-1-sub {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .option1, .option2 {
+        width: 100%;
+    }
+
+    .shapes {
+        justify-content: 0 auto;
+    }
 }
 
 .status {
@@ -484,7 +511,6 @@ footer {
         color: #FFFFFF;
     }
 }
-
 
 .fill {
     display: flex;
