@@ -192,16 +192,16 @@
                 var btn_submit = this.getElement('submit');
                 var btn_clear = this.getElement('clear');
                 btn_submit.onclick = function () {
-                  self.btn_submit();
+                  self.btn_clear();
                 };
                 btn_clear.onclick = function () {
                   self.btn_clear();
                 };
                 this.resetBgColor();
-                for (let i = 1; i <= 35; i++) {
-                  this.images.push('./img/' + i + '.png');
-                  // this.images.push('./img/1.png');
-                }
+                // for (let i = 1; i <= 35; i++) {
+                //   // this.images.push('./img/' + i + '.png');
+                //   this.images.push('./img/1.png');
+                // }
               },
               
             }
@@ -210,9 +210,14 @@
             };
           </script>
           <!-- <script src="./app1.js"></script> -->
-          
         </div>
+
       </section>
+
+      <div class="status">
+        <h3 id="drawing">Drawing ...</h3>
+        <h3 id="done">Done!</h3>
+      </div>
 
       <footer>
         <p>Updated: March 29th, 2022</p>
@@ -224,33 +229,57 @@
         // socket.on('greeting-from-server', function (message) {
         //   document.body.appendChild(document.createTextNode(message.greeting));
         // });
+        socket.on('Done1', (msg) => {
+          //put done msg
+          document.getElementById("drawing").style.display = "none";
+          document.getElementById("done").style.display = "block";
+          setTimeout(() => {
+            document.getElementById("done").style.display = "none";
+          }, 1400);
+        });
+
         const squarebtn = document.getElementById("square");
         squarebtn.addEventListener("click", () =>{
+          // socket.emit('greeting-from-btn',{
+          //   greeting: 'Hello Server from btn'
+          // });
+          document.getElementById("drawing").style.display = "block";
           socket.emit('square_cmd', squarebtn.value);        
         });
 
+        const submitbtn = document.getElementById("submit");
+        const input = document.getElementById("content")
+        submitbtn.addEventListener("click", () =>{
+          socket.emit('input', content.value);
+        })
+
         const trianglebtn = document.getElementById("triangle");
         trianglebtn.addEventListener("click", () =>{
+          document.getElementById("drawing").style.display = "block";
           socket.emit('triangle_cmd', trianglebtn.value);        
         });
 
         const circlebtn = document.getElementById("circle");
         circlebtn.addEventListener("click", () =>{
+          document.getElementById("drawing").style.display = "block";
           socket.emit('circle_cmd', circlebtn.value);        
         });
 
         const rectanglebtn = document.getElementById("rectangle");
         rectanglebtn.addEventListener("click", () =>{
+          document.getElementById("drawing").style.display = "block";
           socket.emit('rectangle_cmd', rectanglebtn.value);        
         });
 
         const heartbtn = document.getElementById("heart");
         heartbtn.addEventListener("click", () =>{
+          document.getElementById("drawing").style.display = "block";
           socket.emit('heart_cmd', heartbtn.value);        
         });
 
         const ovalbtn = document.getElementById("oval");
         ovalbtn.addEventListener("click", () =>{
+          document.getElementById("drawing").style.display = "block";
           socket.emit('oval_cmd', ovalbtn.value);        
         });
         // socket.emit('greeting-from-client',{
