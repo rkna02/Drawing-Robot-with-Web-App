@@ -1,4 +1,15 @@
-/* global element styles */
+/* Site Stylesheet
+    1. Global Element Styles
+    2. Global Navigation Menu Styles
+    3. 
+
+
+======================================= */
+
+
+/* 1. Global Element Styles
+======================================= */
+
 html, body {
     height: 100%;
 }
@@ -39,11 +50,13 @@ nav {
     margin: 0 auto 31px;
 }
 
+
+/* 2. Global Navigation Menu Styles
+======================================= */
+
 .container {
     display: flex;
 }
-
-/* global navigation section */
 
 header .container {
     display: flex;
@@ -134,13 +147,14 @@ nav .dropdown {
         background-color: #ddd;
     }
 
-    /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {
         display: block;
     }
 
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .button-dropdown {background-color: black; color: white}
+    .dropdown:hover .button-dropdown {
+        background-color: black; 
+        color: white
+    }
 }
 
 /* global footer section */ 
@@ -479,6 +493,7 @@ footer {
 #done {
     display: none;
 }
+
 
 /* MODE 2 PAGE STYLES */
 

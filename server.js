@@ -61,71 +61,75 @@ io.on("connection", (socket) =>{
   });
 
   socket.on('forward_cmd', function (message) {
-    console.log(message);
-    
-    
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["forward.py"]);
-    pythonProcess.on("exit",() =>{
+    //console.log(message);
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["forward.py"]);
+    //pythonProcess.on("exit",() =>{
       // console.log("Sending signal")
-      socket.emit('Done2', "done");
+    //  socket.emit('Done2', "done");
       // process.exit(0);
-    });
+    //});
+    socket.broadcast.emit('cmd_forard', message);
     console.log("Sent signal to client");
 
   });
   
   socket.on('backward_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["backward.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
+    //console.log(message);
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["backward.py"]);
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done2', "done");
+    //});
     // to test forward function, erase 10
+    socket.broadcast.emit('cmd_backward', message);
   });
 
 
   socket.on('right_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["right.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
+    //console.log(message);
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["right.py"]);
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done2', "done");
+    //});
     // to test forward function, erase 10
+    socket.broadcast.emit('cmd_right', message);
   });
 
 
   socket.on('left_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["left.py"]);
+    //console.log(message);
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["left.py"]);
     // to test forward function, erase 10
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done2', "done");
+    //});
+    socket.broadcast.emit('cmd_left', message);
   });
 
   socket.on('up', function (message) {
-    console.log(message.toString());
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["penUp.py"]);
+    //console.log(message.toString());
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["penUp.py"]);
     // to test forward function, erase 10
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done2', "done");
+    //});
+    socket.broadcast.emit('cmd_up', message);
   });
 
 
   socket.on('down', function (message) {
-    console.log(message.toString());
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["penDown.py"]);
+    //console.log(message.toString());
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["penDown.py"]);
     // to test forward function, erase 10
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done2', "done");
+    //});
+    socket.broadcast.emit('cmd_down', message);
   });
 
   socket.on('input', function(input){
@@ -171,7 +175,7 @@ io.on("connection", (socket) =>{
     // pythonProcess.on("exit",() =>{
     //   socket.emit('Done1', "done");
     // });
-    socket.broadcast.emit('cmd_squr', message);
+    socket.broadcast.emit('cmd_square', message);
   });
 
   socket.on('CD1', (msg) =>{
@@ -184,46 +188,49 @@ io.on("connection", (socket) =>{
     // pythonProcess.on("exit",() =>{
     //   socket.emit('Done1', "done");
     // });
-    socket.broadcast.emit('cmd_squr', message);
+    socket.broadcast.emit('cmd_triangle', message);
   });
 
   socket.on('circle_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["test.py", 10]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["test.py", 10]);
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done1', "done");
+    //});
+    socket.broadcast.emit('cmd_circle', message);
   });
 
   socket.on('rectangle_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_rec.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    //console.log(message);
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["dr_rec.py"]);
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done1', "done");
+    //});
+    socket.broadcast.emit('cmd_rectangle', message);
   });
 
   socket.on('heart_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_heart.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["dr_heart.py"]);
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done1', "done");
+    //});
+    socket.broadcast.emit('cmd_heart', message);
   });
 
   socket.on('oval_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_oval.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    //const spawn = require("child_process").spawn;
+    //const pythonProcess = spawn('python3',["dr_oval.py"]);
+    //pythonProcess.on("exit",() =>{
+    //  socket.emit('Done1', "done");
+    //});
+    socket.broadcast.emit('cmd_oval', message);
   });
 
   socket.on("disconnect", ()=>{
     console.log("user disconnects");
   })
-
 
   // socket.on('greeting-from-btn', function (message) {
   //   console.log(message);
