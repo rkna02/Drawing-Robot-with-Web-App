@@ -24,7 +24,7 @@ def pup():
 def stop():
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(1)
+    time.sleep(0.5)
 
 def forward(interval):
     kit.motor1.throttle = 0.50 # m1 is right side
@@ -35,9 +35,9 @@ def forward(interval):
 
 #forward(0.2)  # position 0 to 1
 pdown()
-time.sleep(1)
-kit.motor1.throttle = 0.57
-time.sleep(2)
+stop()
+kit.motor1.throttle = 0.5
+time.sleep(2.6)
 pup()
 stop()
 p.stop()

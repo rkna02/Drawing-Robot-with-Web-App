@@ -235,7 +235,6 @@ io.on("connection", (socket) =>{
 server.listen(3000);
 
 //comment out this section when running on VM
-/*
 server.listen(port, hostname, (error) => {
   if (error) {
      console.log('ERROR: failed to get information', error)
@@ -243,4 +242,3 @@ server.listen(port, hostname, (error) => {
     console.log('Server is listening on port' + port)
    }
  });
-*/
