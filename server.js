@@ -60,6 +60,10 @@ io.on("connection", (socket) =>{
     console.log("client sent", msg);
   });
 
+  socket.on('CD2', (msg) =>{
+    socket.broadcast.emit('Done2', msg);
+  });
+
   socket.on('forward_cmd', function (message) {
     //console.log(message);
     //const spawn = require("child_process").spawn;
@@ -69,7 +73,7 @@ io.on("connection", (socket) =>{
     //  socket.emit('Done2', "done");
       // process.exit(0);
     //});
-    socket.broadcast.emit('cmd_forard', message);
+    socket.broadcast.emit('cmd_forward', message);
     console.log("Sent signal to client");
 
   });
@@ -135,39 +139,33 @@ io.on("connection", (socket) =>{
   socket.on('input', function(input){
     input = input.toLowerCase();
     console.log(input);
-    const spawn = require("child_process").spawn;
+    
     if (input == "circle"){
-      console.log("exec circle");
-      const pythonProcess = spawn('python3', ["dr_cir.py"]);
+      socket.broadcast.emit('cmd_circle', message);
     }
     else if (input == "triangle"){
-      console.log("exec triangle");
-      const pythonProcess = spawn('python3', ["dr_tri.py"]);
+      socket.broadcast.emit('cmd_triangle', message);
     }
     else if (input == "square"){ 
-      console.log("exec square");
-      const pythonProcess = spawn('python3', ["dr_squ.py"]);
+      socket.broadcast.emit('cmd_square', message);
     }
     else if (input == "rectangle"){
-      console.log("exec rectangle");
-      const pythonProcess = spawn('python3', ["dr_rec.py"]);
+      socket.broadcast.emit('cmd_rectangle', message);
     }
     else if (input == "heart"){
-      console.log("exec heart");
-      const pythonProcess = spawn('python3', ["dr_heart.py"]);
+      socket.broadcast.emit('cmd_heart', message);
     }
     else if (input == "oval"){
-      console.log("exec oval");
-      const pythonProcess = spawn('python3', ["dr_oval.py"]);
+      socket.broadcast.emit('cmd_oval', message);
     }
     else{
       console.log("unknown shape");
     }
+  });
 
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
-  })
+  socket.on('CD1', (msg) =>{
+    socket.broadcast.emit('Done1', msg);
+  });
 
   socket.on('square_cmd', function (message) {
     // const spawn = require("child_process").spawn;
@@ -178,9 +176,6 @@ io.on("connection", (socket) =>{
     socket.broadcast.emit('cmd_square', message);
   });
 
-  socket.on('CD1', (msg) =>{
-    socket.broadcast.emit('Done1', "done");
-  });
 
   socket.on('triangle_cmd', function (message) {
     // const spawn = require("child_process").spawn;
