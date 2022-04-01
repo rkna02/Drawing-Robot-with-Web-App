@@ -19,7 +19,7 @@ p = GPIO.PWM(servoPin, 50) # GPIO 17 for PWM with 50Hz
 kit.motor1.throttle = -0.53
 kit.motor2.throttle = -0.5
 
-time.sleep(0.5)
+time.sleep(0.15)
 
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
