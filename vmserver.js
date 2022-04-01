@@ -113,6 +113,29 @@ socket.on('connect', function () {
         });
     });
 
+    socket.on('cmd_back_left', function (msg){
+        console.log("user press ", msg);
+        const spawn = require("child_process").spawn;
+        const pythonProcess = spawn('python3',["back_l.py"]);
+        
+        pythonProcess.on('exit',() =>{
+            console.log("finish fn ", msg);
+            console.log("sent back");
+            socket.emit('CD2', "done");
+        });
+    });
+
+    socket.on('cmd_back_right', function (msg){
+        console.log("user press ", msg);
+        const spawn = require("child_process").spawn;
+        const pythonProcess = spawn('python3',["back_right.py"]);
+        
+        pythonProcess.on('exit',() =>{
+            console.log("finish fn ", msg);
+            console.log("sent back");
+            socket.emit('CD2', "done");
+        });
+    });
     socket.on('cmd_backward', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
