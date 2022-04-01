@@ -1,5 +1,5 @@
 import sys
-# test the car by uncomment the below section and comment out the above section 
+# test the car by uncomment the below section and comment out the above section
 import time
 from tracemalloc import stop
 from turtle import pd
@@ -13,17 +13,14 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(servoPin, GPIO.OUT)
 kit = MotorKit(i2c=board.I2C())
 
-
 p = GPIO.PWM(servoPin, 50) # GPIO 17 for PWM with 50Hz
 
-kit.motor1.throttle = -0.53
-kit.motor2.throttle = -0.5
-
-time.sleep(0.25)
-
+kit.motor1.throttle = -0.4
+kit.motor2.throttle = 0
+time.sleep(0.5)
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
-
 # except KeyboardInterrupt:
 p.stop()
-GPIO.cleanup()
+GPIO.cleanup() #free resources on gpio pins
+
