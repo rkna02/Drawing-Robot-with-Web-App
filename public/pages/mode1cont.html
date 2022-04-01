@@ -72,6 +72,10 @@
           <h2>② Click submit to write the text:</h2> 
           <div class="chatbox">
             <h1>TEXT</h1>
+            <div class="input">
+              <label for="fname"> <br> Input text:</label>
+              <input type="text" id="content" placeholder="Enter content max length 40" maxlength="40">
+            </div>  
             <button type="button" id="submit">submit</button>
           </div>
 
@@ -211,7 +215,7 @@
 
       </section>
 
-      <div class="status">
+      <div id="status">
         <h3 id="drawing">Drawing ...</h3>
         <h3 id="done">Done!</h3>
       </div>
@@ -228,6 +232,7 @@
 
         socket.on('Done1', (msg) => {
           document.getElementById("drawing").style.display = "none";
+          document.getElementById("status").style.backgroundColor = "green";
           document.getElementById("done").style.display = "block";
           setTimeout(() => {
             document.getElementById("done").style.display = "none";
