@@ -17,7 +17,6 @@ p.start(2.5) # Initialization
 
 def pdown():
     p.ChangeDutyCycle(5.5)
-
 def pup():
     p.ChangeDutyCycle(10)
 def stop():
@@ -76,12 +75,14 @@ kit.motor1.throttle = 0
 kit.motor2.throttle = 0
 time.sleep(0.2)
 #second half circle
+kit.motor2.throttle = 0.55
+time.sleep(0.2)
 pdown()
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
 time.sleep(0.2)
 kit.motor2.throttle = 0.55
-time.sleep(1.2)
+time.sleep(1)
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
 time.sleep(0.2)
@@ -107,8 +108,8 @@ time.sleep(0.825)
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
 time.sleep(0.2)
-turndegree(0.69,0.7)
-time.sleep(1)
+turndegree(0.66,0.7)
+time.sleep(0.2)
 kit.motor1.throttle = 0.5
 kit.motor2.throttle = 0.5
 time.sleep(0.83)
