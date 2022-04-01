@@ -371,15 +371,16 @@ footer {
 .mode1_title h2 {
     line-height: 100%;
 }
+
 .mode1_title {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    line-height: 190%;
+    line-height: 185%;
     background-image: url("mode1title.jpg");
     background-size: cover;
     font-family: cursive;
-    height: 550px;
+    height: 620px;
     color: rgb(255, 255, 255);
 }
 
@@ -393,11 +394,11 @@ footer {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        line-height: 32px;
+        line-height: 25px;
         background-image: url("mode1title.jpg");
         background-size: cover;
         font-family: cursive;
-        height: 550px;
+        height: 620px;
         color: rgb(255, 255, 255);
     }
 }
