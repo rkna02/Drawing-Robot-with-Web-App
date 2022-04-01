@@ -1,32 +1,32 @@
+// set up socket connection to client server
 var io = require('socket.io-client');
-// var socket = io.connect("http://localhost:3000/", {
-//     reconnection: true
-// });
-
 var socket = io.connect("http://cpen291-17.ece.ubc.ca", {
     reconnection: true
 });
+
+// Socket signals between VM server and Raspberry Pi server 
+
 socket.on('connect', function () {
+
+    // Shows connection message on terminal 
     console.log('connected to cpen 291 page');
     socket.on('clientEvent', function (data) {
         console.log('message from the server:', data);
         socket.emit('serverEvent', "thanks server! for sending '" + data + "'");
     });
 
-    //mode 1
+    // Mode 1 socket signals to run files on raspberry Pi 
+
     socket.on('cmd_square', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
         const pythonProcess = spawn('python3',["dr_squ.py"]);
-        // pythonProcess.stdout.on('data', (data)=>{
-            //     console.log("result is ", data.toString());
-            //     console.log("finish fn");
-            // });    
-            pythonProcess.on('exit',() =>{
-                console.log("finish fn ", msg);
-                console.log("sent back");
-                socket.emit('CD1', "done");
-            });
+
+        pythonProcess.on('exit',() =>{
+            console.log("finish fn ", msg);
+            console.log("sent back");
+            socket.emit('CD1', "done");
+        });
     });
         
     socket.on('cmd_triangle', function (msg){
@@ -41,7 +41,7 @@ socket.on('connect', function () {
         });
     });
 
-    socket.on('cmd _rectangle', function (msg){
+    socket.on('cmd_rectangle', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
         const pythonProcess = spawn('python3',["dr_rec.py"]);
@@ -52,7 +52,6 @@ socket.on('connect', function () {
             socket.emit('CD1', "done");
         });
     });
-    
     
     socket.on('cmd_circle', function (msg){
         console.log("user press ", msg);
@@ -90,8 +89,18 @@ socket.on('connect', function () {
         });
     });
 
+    socket.on('cmd_cpen', function (msg){
+        console.log("user press ", msg);
+        const spawn = require("child_process").spawn;
+        const pythonProcess = spawn('python3',["dr_cpen.py"]);
+        
+        pythonProcess.on('exit',() =>{
+            console.log("finish fn ", msg);
+            console.log("sent back");
+            socket.emit('CD1', "done");
+        });
+    });
 
-    //mode 2
     socket.on('cmd_forward', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
@@ -103,6 +112,7 @@ socket.on('connect', function () {
             socket.emit('CD2', "done");
         });
     });
+
     socket.on('cmd_backward', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
@@ -114,6 +124,7 @@ socket.on('connect', function () {
             socket.emit('CD2', "done");
         });
     });
+
     socket.on('cmd_right', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
@@ -137,6 +148,7 @@ socket.on('connect', function () {
             socket.emit('CD2', "done");
         });
     });
+
     socket.on('cmd_down', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
@@ -148,6 +160,7 @@ socket.on('connect', function () {
             socket.emit('CD2', "done");
         });
     });
+
     socket.on('cmd_up', function (msg){
         console.log("user press ", msg);
         const spawn = require("child_process").spawn;
@@ -162,6 +175,7 @@ socket.on('connect', function () {
 
 });
 
+// Shows disconnection message on terminal and exits 
 socket.on("disconnect", () =>{
     console.log("Server disconnects");
     process.exit(0);

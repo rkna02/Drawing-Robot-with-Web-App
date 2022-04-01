@@ -8,7 +8,9 @@
         b. Robot Structure 
         c. Modes Description
     3. Mode 1 Page Styles 
-        a. 
+        a. Title and Overall Format 
+        b. Option 1: Draw Shape
+        c. Option 2: Write Text
     4. Mode 2 Page Styles 
         a. Instructions
         b. Control Pad
@@ -365,6 +367,8 @@ footer {
 /* 3. Mode 1 Page Styles
 ======================================= */ 
 
+/* 3a. Title and Overall Format */
+
 .mode1_title{
     display: flex;
     background-image: url("mode1_bg.jpg"); 
@@ -382,16 +386,14 @@ footer {
     background-color: rgb(220, 253, 255);
 }
 
-.option2 h1 {
-    padding: 20px;
-    background-color: rgb(226, 139, 139);
-}
-
 .mode-1-sub h2{
     font-size: 30px;
     font-family: 'Franklin Gothic Medium';
     color: rgb(32, 153, 32);
 }
+
+
+/* 3b. Option 1: Draw Shape */
 
 .option1{
     width: 50%;
@@ -424,8 +426,16 @@ footer {
     font-family: fantasy;
 }
 
+
+/* 3c. Option 2: Write Text */
+
 .option2{
     width: 50%;
+}
+
+.option2 h1 {
+    padding: 20px;
+    background-color: rgb(226, 139, 139);
 }
  
 .chatbox {
@@ -446,24 +456,6 @@ footer {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 1130px) {
-    .mode-1-sub {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-    }
-
-    .option1, .option2 {
-        width: 100%;
-    }
-
-    .shapes {
-        justify-content: 0 auto;
-    }
-}
-
 .status {
     display: flex;
     background-color: rgb(32, 153, 32);
@@ -477,6 +469,34 @@ footer {
 
 #done {
     display: none;
+}
+
+@media only screen and (max-width: 1130px) {
+
+    .mode-1-sub {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .option1, .option2 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .shapes {
+        margin-left: 0;
+    }
+
+    .shape_text {
+        margin-left: 0;
+    }
 }
 
 
