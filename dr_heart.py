@@ -96,7 +96,7 @@ kit.motor2.throttle = 0.35
 time.sleep(0.7)
 kit.motor1.throttle = -0.5
 kit.motor2.throttle = -0.5
-time.sleep(0.52)
+time.sleep(0.54)
 pdown()
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
@@ -108,7 +108,7 @@ time.sleep(0.825)
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0
 time.sleep(0.2)
-turndegree(0.66,0.7)
+turndegree(0.67,0.7)
 time.sleep(0.2)
 kit.motor1.throttle = 0.5
 kit.motor2.throttle = 0.5
