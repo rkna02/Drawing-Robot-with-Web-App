@@ -44,6 +44,16 @@
           function printShape(shape) {
             document.getElementById("demo").innerHTML = shape;
           }
+          function userinput(){
+            var content = document.getElementById("content").value;
+            var input = content.toLowerCase();
+            if (input!="circle" && input != "square" && input != "oval" && input != "heart" && input != "rectangle" && input != "triangle" && input != "cpen"){
+              document.getElementById("result").innerText = "invalid input";
+            }
+            else{
+              document.getElementById("result").innerText = content;
+            }
+          }
         </script>
 
         <div class="option1">
@@ -68,15 +78,16 @@
           </div>
         </div>
 
+
         <div class="option2">
           <h2>② Click submit to write the text:</h2> 
           <div class="chatbox">
-            <h1>TEXT</h1>
+            <h1 id = "result">TEXT</h1>
             <div class="input">
               <label for="fname"> <br> Input text:</label>
               <input type="text" id="content" placeholder="Enter content max length 40" maxlength="40">
             </div>  
-            <button type="button" id="submit">submit</button>
+            <button type="button" id="submit" onclick="userinput()">submit</button>
           </div>
 
           <script>
