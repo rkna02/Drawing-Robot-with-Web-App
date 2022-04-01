@@ -187,7 +187,7 @@ footer {
     background: url(page-hero-img.png) no-repeat top center;
     background-size: cover;
     max-width: 100%;
-    height: 750px;
+    height: 780px;
     text-align: center;
     border: 1px solid black;
 }
@@ -202,8 +202,7 @@ footer {
 
 .page-hero h3 {
     color: white;
-    margin-top: 460px;
-    padding-bottom: 10px;
+    margin-top: 450px;
     font-size: 27px;
 }
 
@@ -309,8 +308,8 @@ footer {
 }
 
 .mode-1 img {
-    height: 400px;
-    width: 450px;
+    height: 320px;
+    width: 480px;
     min-width: 450px;
     margin: 0px 0px 75px 75px;
 }
@@ -325,8 +324,8 @@ footer {
 }
 
 .mode-2 img {
-    height: 400px;
-    width: 450px;
+    height: 320px;
+    width: 430px;
     min-width: 450px;
     margin: 0px 75px 75px 0px;
 }
@@ -369,27 +368,51 @@ footer {
 
 /* 3a. Title and Overall Format */
 
-.mode1_title{
+.mode1_title h2 {
+    line-height: 100%;
+}
+.mode1_title {
     display: flex;
-    background-image: url("mode1_bg.jpg"); 
+    flex-direction: column;
+    flex-wrap: wrap;
+    line-height: 190%;
+    background-image: url("mode1title.jpg");
+    background-size: cover;
+    font-family: cursive;
+    height: 550px;
+    color: rgb(255, 255, 255);
 }
 
-.mode1_title h1{
-    margin: 0 auto;
-    font-size: 60px;
-    font-family: 'Courier New', Courier, monospace;
+.mode1_title h2, .mode1_title h3{
+    color: rgb(6, 32, 56);
+    text-shadow: 2px 2px #ffffff;
+}
+
+@media only screen and (max-width: 618px) {
+    .mode1_title{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        line-height: 32px;
+        background-image: url("mode1title.jpg");
+        background-size: cover;
+        font-family: cursive;
+        height: 550px;
+        color: rgb(255, 255, 255);
+    }
 }
 
 .mode-1-sub{
     display: flex;
     flex-direction: row;
-    background-color: rgb(220, 253, 255);
+    background-color: #fdf7dd;
 }
 
 .mode-1-sub h2{
-    font-size: 30px;
-    font-family: 'Franklin Gothic Medium';
-    color: rgb(32, 153, 32);
+    font-size: 45px;
+    /* font-family: 'Franklin Gothic Medium'; */
+    font-family: cursive;
+    color: rgb(100, 50, 35);
 }
 
 
@@ -420,7 +443,7 @@ footer {
 
 .shape_text{
     margin-left: 15%;
-    text-shadow: 2px 2px 5px rgb(204, 7, 178);
+    text-shadow: 2px 2px 5px rgb(226, 139, 139);
     font-size: 25px;
     font-weight: 400;
     font-family: fantasy;
@@ -528,8 +551,13 @@ footer {
     background-image: url("mode2_instruction_bg.jpg");
     background-size: cover;
     font-family: cursive;
-    height: 660px;
+    height: 550px;
     color: #FFFFFF;
+}
+
+.mode-2-instruction h2, .mode-2-instruction h3{
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px #000000;
 }
 
 @media only screen and (max-width: 618px) {
@@ -541,7 +569,7 @@ footer {
         background-image: url("mode2_instruction_bg.jpg");
         background-size: cover;
         font-family: cursive;
-        height: 660px;
+        height: 550px;
         color: #FFFFFF;
     }
 }
@@ -688,14 +716,3 @@ footer {
 .showcase1 iframe {
     margin-bottom: 5%;
 }
-
-
-
-
-
-
-
-
-
-
-
