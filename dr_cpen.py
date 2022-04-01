@@ -60,14 +60,14 @@ pup()
 kit.motor1.throttle = 0.55
 time.sleep(0.2)
 stop()
-time.sleep(5)
+time.sleep(0.3)
 forward(0.26)
 stop()
 kit.motor1.throttle = 0.55
 time.sleep(0.56)
 forward(0.1)
 stop()
-time.sleep(2)
+time.sleep(0.3)
 #----- P -------------------
 pdown()
 kit.motor1.throttle = -0.51
@@ -97,12 +97,12 @@ kit.motor1.throttle = 0.55
 kit.motor2.throttle = 0
 time.sleep(0.56)
 stop()
-time.sleep(0.5)
+time.sleep(0.3)
 kit.motor1.throttle = -0.51
 kit.motor2.throttle = -0.5
 time.sleep(0.52)
 stop()
-time.sleep(2)
+time.sleep(0.3)
 #----E------------------------
 pdown()
 kit.motor1.throttle = -0.53
@@ -128,7 +128,7 @@ kit.motor1.throttle = -0.51
 kit.motor2.throttle = -0.5
 time.sleep(0.6)
 stop()
-time.sleep(3)
+time.sleep(0.2)
 #----n-----------------------
 pdown()
 forward(0.6)  # 0 to 1
