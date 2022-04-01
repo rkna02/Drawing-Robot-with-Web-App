@@ -90,6 +90,17 @@ socket.on('connect', function () {
         });
     });
 
+    socket.on('cmd_cpen', function (msg){
+        console.log("user press ", msg);
+        const spawn = require("child_process").spawn;
+        const pythonProcess = spawn('python3',["dr_cpen.py"]);
+        
+        pythonProcess.on('exit',() =>{
+            console.log("finish fn ", msg);
+            console.log("sent back");
+            socket.emit('CD1', "done");
+        });
+    });
 
     //mode 2
     socket.on('cmd_forward', function (msg){
