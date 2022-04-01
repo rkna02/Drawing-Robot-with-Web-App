@@ -64,7 +64,7 @@ forward(0.6)  # 1
 pup()
 backward(0.35)
 turndegree(0.767,0.73)
-forward(0.5)  # 2
+forward(0.58)  # 2
 pup()
 backward(0.3)
 turndegree(0.775,0.73)

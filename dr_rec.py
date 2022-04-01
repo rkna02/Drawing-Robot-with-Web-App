@@ -18,23 +18,23 @@ p.start(2.5) # Initialization
 def stop():
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(1)
+    time.sleep(0.5)
     
 def pdown():
     p.ChangeDutyCycle(5.5)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(1)
+    time.sleep(0.2)
     
 
 def pup():
     p.ChangeDutyCycle(10)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(1)
+    time.sleep(0.2)
     
 def forward(interval):
-    kit.motor1.throttle = 0.50 # m1 is right side
+    kit.motor1.throttle = 0.51 # m1 is right side
     kit.motor2.throttle = 0.50
     time.sleep(interval)
     kit.motor1.throttle = 0
@@ -60,16 +60,16 @@ def turndegree(degree_interval, back_interval):  # turn right
 #       ````
 pdown()
 forward(0.4)  # 0 to 1
-turndegree(0.599,0.61)
+turndegree(0.56,0.61)
 pdown()
 forward(0.7)  # 2
-turndegree(0.599,0.61)
+turndegree(0.55,0.61)
 pdown()
 forward(0.4)  # 3 
-turndegree(0.599,0.61)
+turndegree(0.53,0.61)
 pdown()
 forward(0.7)  # 4
-turndegree(0.599,0.61) # reposition: facing to right
+turndegree(0.50,0.61) # reposition: facing to right
 pup()
 
 p.stop()

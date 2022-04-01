@@ -93,7 +93,8 @@ kit.motor2.throttle = 0.5
 time.sleep(0.2)
 kit.motor1.throttle = 0
 kit.motor2.throttle = 0.35
-time.sleep(0.6)
+time.sleep(0.4)
+#
 kit.motor1.throttle = -0.5
 kit.motor2.throttle = -0.5
 time.sleep(0.54)

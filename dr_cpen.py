@@ -132,10 +132,10 @@ time.sleep(0.2)
 #----n-----------------------
 pdown()
 forward(0.6)  # 0 to 1
-turndegree(0.599,0.61)
+turndegree(0.56,0.61)
 pdown()
 forward(0.5)  # 2
-turndegree(0.599,0.6)
+turndegree(0.56,0.6)
 pdown()
 forward(0.61)
 pup()
