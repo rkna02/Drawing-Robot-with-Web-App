@@ -17,15 +17,12 @@ p.start(2.5) # Initialization
 
 def pdown():
     p.ChangeDutyCycle(5.5)
-
 def pup():
     p.ChangeDutyCycle(10)
-    
 def stop():
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
     time.sleep(0.5)
-
 def forward(interval):
     kit.motor1.throttle = 0.50 # m1 is right side
     kit.motor2.throttle = 0.50
@@ -36,7 +33,7 @@ def forward(interval):
 #forward(0.2)  # position 0 to 1
 pdown()
 stop()
-kit.motor1.throttle = 0.5
+kit.motor1.throttle = 0.55
 time.sleep(2.6)
 pup()
 stop()
