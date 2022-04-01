@@ -669,9 +669,20 @@ footer {
 
 
 /* Showcase page styles */
-.oi {
-    height: 400px;
+
+.showcase1 h1 {
+    font-size: 300%;
+    padding: 1% 1%;
+    background-color: black;
+    color: white;
+    width: 58%;
+    margin: 0 auto;
+    margin-top: 3%;
 }
+.showcase1 iframe {
+    margin-bottom: 5%;
+}
+
 
 
 

@@ -85,7 +85,7 @@
             <h1 id = "result">TEXT</h1>
             <div class="input">
               <label for="fname"> <br> Input text:</label>
-              <input type="text" id="content" placeholder="Enter content max length 40" maxlength="40">
+              <input type="text" id="content" placeholder="Enter content max length 10" maxlength="10">
             </div>  
             <button type="button" id="submit" onclick="userinput()">submit</button>
           </div>
@@ -157,7 +157,8 @@
                 let content = this.getElement('content');
                 if (!content.value) {
                   return;
-                }                
+                }     
+                           
                 if(al) {
                   alert('invaild input, please enter only characters');
                 }
