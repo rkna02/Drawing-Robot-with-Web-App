@@ -559,7 +559,7 @@ footer {
 
 .controlpad {
     background-image: url("game-interface.jpg");
-    background-size:100% 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
@@ -578,17 +578,20 @@ footer {
     font-size: 400%;
 }
 
+/*
 #forward {
     margin: 55px 170px 5px 155px;
 }
+*/
 
 #up {
-    margin-top: 55px;
+    margin-top: 20%;
 }
+
 
 .controlpad-top {
     display: flex;
-    margin-top: 50%;
+    margin-top: 60%;
 }
 
 .controlpad-bottom {
@@ -618,6 +621,7 @@ footer {
         font-size: 200%;
     }
 
+    /*
     #forward {
         margin: 40px 170px 5px 95px;
     }
@@ -625,10 +629,11 @@ footer {
     #up {
         margin-top: 40px;
     }
+    */
     
     .controlpad-top {
         display: flex;
-        margin-top: 50%;
+        margin-top: 60%;
     }
     
     .controlpad-bottom {
@@ -637,7 +642,7 @@ footer {
     }
     
     .controlpad-right {
-        margin-left: 0%;
+        margin-left: 10%;
         margin-right: 3%;
     }
     
@@ -660,6 +665,7 @@ footer {
         font-size: 150%;
     }
 
+    /*
     #forward {
         margin: 20px 100px 5px 65px;
     }
@@ -667,10 +673,11 @@ footer {
     #up {
         margin-top: 20px;
     }
+    */
     
     .controlpad-top {
         display: flex;
-        margin-top: 50%;
+        margin-top: 60%;
     }
     
     .controlpad-bottom {

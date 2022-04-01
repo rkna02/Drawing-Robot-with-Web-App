@@ -52,20 +52,22 @@
 
           <div class = "controlpad-left">
             <div class = "controlpad-top">
-              <input type = "button" id = "forward" onclick = "move_forward()" value ="W">
+              <input type = "button" id = "left" onclick = "move_forward()" value ="↖">
+              <input type = "button" id = "forward" onclick=" move_right()" value ="↑">
+              <input type = "button" id = "right" onclick=" move_right()" value ="↗">
             </div>
             <div class="controlpad-bottom">
-              <input type = "button" id = "left" onclick=" move_left()" value ="A">
-              <input type = "button" id = "backward" onclick=" move_backward()" value ="S">
-              <input type = "button" id = "right" onclick=" move_right()" value ="D">
+              <input type = "button" id = "left-back" onclick=" move_left()" value ="↙">
+              <input type = "button" id = "backward" onclick=" move_backward()" value ="↓">
+              <input type = "button" id = "right-back" onclick=" move_right()" value ="↘">
             </div>
           </div>
           <div class = "controlpad-right">
             <div class = "controlpad-top">
-              <input type = "button" id = "up" onclick="lift_up()" value="↑">
+              <input type = "button" id = "up" onclick="lift_up()" value="↑↑">
             </div>
             <div class="controlpad-bottom">
-              <input type = "button" id = "down" onclick="lift_down()" value="↓">
+              <input type = "button" id = "down" onclick="lift_down()" value="↓↓">
             </div>
           </div>
           
@@ -142,6 +144,28 @@
           down.style.backgroundColor = "rgba(119, 255, 255, 100)";
           down.style.color = "#001B48";
           socket.emit('down', downbtn.value);
+          setTimeout(() => {
+            down.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            down.style.color = "rgba(119, 255, 255, 100)";     
+          }, timeout);
+        });
+
+        const backleftbtn = document.getElementById("left-back");
+        backleftbtn.addEventListener("click", ()=>{
+          down.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          down.style.color = "#001B48";
+          socket.emit('back_left_cmd', backleftbtn.value);
+          setTimeout(() => {
+            down.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            down.style.color = "rgba(119, 255, 255, 100)";     
+          }, timeout);
+        });
+
+        const backrightbtn = document.getElementById("right-back");
+        backrightbtn.addEventListener("click", ()=>{
+          down.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          down.style.color = "#001B48";
+          socket.emit('back_right_cmd', backrightbtn.value);
           setTimeout(() => {
             down.style.backgroundColor = "rgba(0, 0, 0, 0)";
             down.style.color = "rgba(119, 255, 255, 100)";     
