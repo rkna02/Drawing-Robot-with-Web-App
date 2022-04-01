@@ -110,7 +110,6 @@
                 text = /^[a-zA-Z]*$/.test(text) ? text.toLocaleUpperCase() : text;
                 ctx.fillStyle = 'white';
                 ctx.font = "30px Arial";
-                //ctx.translate(20, 50);
                 ctx.fillText(text, 20, 50);
               },
 
@@ -130,7 +129,6 @@
                   image.onload = function () {
                     var wScale = self.width / image.width;
                     var yScale = self.height / image.height;
-                    //ctx.drawImage(image, 0, 0, image.width, image.height, 0, 0, image.width * wScale, image.height * yScale);
                     self.fillText(ctx, text);
                     resolve(canvas);
                   };
@@ -167,7 +165,6 @@
                   console.log('item:', item);
                   for (let i = 0; i < item.length; i++) {
                     splitList.push(self.drawImage(item[i]));
-                    //splitList.push(self.fillText(item[i]));
                   }
                 });
             
@@ -210,6 +207,7 @@
             window.onload = function () {
               Wrapper.init();
             };
+
           </script>
         </div>
 
@@ -280,6 +278,7 @@
         const submitbtn = document.getElementById("submit");
         const input = document.getElementById("content")
         submitbtn.addEventListener("click", () =>{
+          document.getElementById("drawing").style.display = "block";
           socket.emit('input', content.value);
         })
 
