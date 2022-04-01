@@ -58,25 +58,25 @@ io.on("connection", (socket) =>{
     console.log(input);
     
     if (input == "circle"){
-      socket.broadcast.emit('cmd_circle', message);
+      socket.broadcast.emit('cmd_circle', input);
     }
     else if (input == "triangle"){
-      socket.broadcast.emit('cmd_triangle', message);
+      socket.broadcast.emit('cmd_triangle', input);
     }
     else if (input == "square"){ 
-      socket.broadcast.emit('cmd_square', message);
+      socket.broadcast.emit('cmd_square', input);
     }
     else if (input == "rectangle"){
-      socket.broadcast.emit('cmd_rectangle', message);
+      socket.broadcast.emit('cmd_rectangle', input);
     }
     else if (input == "heart"){
-      socket.broadcast.emit('cmd_heart', message);
+      socket.broadcast.emit('cmd_heart', input);
     }
     else if (input == "oval"){
-      socket.broadcast.emit('cmd_oval', message);
+      socket.broadcast.emit('cmd_oval', input);
     }
     else if (input == "cpen"){
-      socket.broadcast.emit('cmd_cpen',message);
+      socket.broadcast.emit('cmd_cpen', input);
     }
     else{
       console.log("unknown shape");
@@ -115,7 +115,12 @@ io.on("connection", (socket) =>{
   });
 
   // Mode 2: Controller sockets 
-
+  socket.on('back_left_cmd', function (message) {
+    socket.broadcast.emit('cmd_back_left', message);
+  });
+  socket.on('back_right_cmd', function (message) {
+    socket.broadcast.emit('cmd_back_right', message);
+  });
   socket.on('forward_cmd', function (message) {
     socket.broadcast.emit('cmd_forward', message);
   });
