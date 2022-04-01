@@ -1,4 +1,27 @@
-/* global element styles */
+/* Site Stylesheet
+    1. Global Styles
+        a. Global Elements
+        b. Navigation Menu 
+        c. Footer 
+    2. Home Page Styles
+        a. Page Hero 
+        b. Robot Structure 
+        c. Modes Description
+    3. Mode 1 Page Styles 
+        a. Title and Overall Format 
+        b. Option 1: Draw Shape
+        c. Option 2: Write Text
+    4. Mode 2 Page Styles 
+        a. Instructions
+        b. Control Pad
+======================================= */
+
+
+/* 1. Global Styles
+======================================= */
+
+/* 1a. Global Elements */
+
 html, body {
     height: 100%;
 }
@@ -39,11 +62,12 @@ nav {
     margin: 0 auto 31px;
 }
 
+
+/* 1b. Navigation Menu */
+
 .container {
     display: flex;
 }
-
-/* global navigation section */
 
 header .container {
     display: flex;
@@ -90,7 +114,6 @@ nav .dropdown {
 }
 
 @media only screen and (max-width: 1085px) {
-
     nav {
         margin-right: 20px;
     }
@@ -134,16 +157,18 @@ nav .dropdown {
         background-color: #ddd;
     }
 
-    /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {
         display: block;
     }
 
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .button-dropdown {background-color: black; color: white}
+    .dropdown:hover .button-dropdown {
+        background-color: black; 
+        color: white
+    }
 }
 
-/* global footer section */ 
+
+/* 1c. Footer */
 
 footer {
     display: flex;
@@ -153,9 +178,10 @@ footer {
 }
 
 
-/* HOME PAGE STYLES */
+/* 2. Home Page Styles 
+======================================= */
 
-/* page hero section */
+/* 2a. Page Hero */
 
 .page-hero {
     background: url(page-hero-img.png) no-repeat top center;
@@ -211,7 +237,8 @@ footer {
     text-decoration: none;
 }
 
-/* robot structure section */
+
+/* 2b. Robot Structure */
 
 .gallery .container {
     display: flex;
@@ -233,7 +260,8 @@ footer {
     margin: 0px 60px 40px;
 }
 
-/* mode description sections */
+
+/* 2c. Modes Description */
 
 .mode-1 h2, .mode-2 h2 {
     padding-top: 25px;
@@ -336,7 +364,10 @@ footer {
 }
 
 
-/* MODE 1 PAGE STYLES */
+/* 3. Mode 1 Page Styles
+======================================= */ 
+
+/* 3a. Title and Overall Format */
 
 .mode1_title{
     display: flex;
@@ -361,12 +392,15 @@ footer {
     color: rgb(32, 153, 32);
 }
 
+
+/* 3b. Option 1: Draw Shape */
+
 .option1{
     width: 50%;
 }
 
 .shapes{
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .shapes img{
@@ -377,53 +411,37 @@ footer {
 }
 
 .block{
-    width: 150px;
-    height: 150px;
+    width: 145px;
+    height: 145px;
     border: none;
     border-radius: 10px;
     margin-bottom: 1%;
 }
 
 .shape_text{
-    margin-left: 20%;
+    margin-left: 15%;
     text-shadow: 2px 2px 5px rgb(204, 7, 178);
     font-size: 25px;
     font-weight: 400;
     font-family: fantasy;
 }
 
+
+/* 3c. Option 2: Write Text */
+
 .option2{
     width: 50%;
 }
 
-.chatbox canvas {
-    outline: 5px solid #c2ebc4;
-    border-radius: 5px;
-    margin-bottom: 2%;
-  }
-
-.text form #fname{
-    width: 40%;
+.option2 h1 {
+    padding: 20px;
+    background-color: rgb(226, 139, 139);
 }
  
 .chatbox {
-    width: 500px;
+    width: 90%;
     margin: 0 auto;
     padding-top: 15px;
-}
-
-.chatbox canvas {
-    outline: 1px solid #CCCCCC;
-    border-radius: 5px;
-}
-
-.chatbox #content {
-    resize: none;
-    width: calc(100% - 30px);
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #a4cdec;
 }
 
 .chatbox > button{
@@ -438,10 +456,21 @@ footer {
     cursor: pointer;
 }
 
-.status {
+.option2 .input input {
+    height: 20px;
+    width: 300px;
+}
+
+.option2 .input {
+    font-size: 20px;
+    margin-top: -3%;
+    margin-bottom: 3%;
+}
+
+#status {
     display: flex;
-    background-color: rgb(32, 153, 32);
     color: white;
+    background-color: yellow;
     justify-content: center;
 }
 
@@ -453,7 +482,39 @@ footer {
     display: none;
 }
 
-/* MODE 2 PAGE STYLES */
+@media only screen and (max-width: 1130px) {
+
+    .mode-1-sub {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .option1, .option2 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .shapes {
+        margin-left: 0;
+    }
+
+    .shape_text {
+        margin-left: 0;
+    }
+}
+
+
+/* 4. Mode 2 Page Styles 
+======================================= */
+
+/* 4a. Instructions */
 
 .mode-2-instruction h2 {
     line-height: 100%;
@@ -467,7 +528,7 @@ footer {
     background-image: url("mode2_instruction_bg.jpg");
     background-size: cover;
     font-family: cursive;
-    height: 630px;
+    height: 660px;
     color: #FFFFFF;
 }
 
@@ -480,11 +541,13 @@ footer {
         background-image: url("mode2_instruction_bg.jpg");
         background-size: cover;
         font-family: cursive;
-        height: 630px;
+        height: 660px;
         color: #FFFFFF;
     }
 }
 
+
+/* 4b. Control Pad */
 
 .fill {
     display: flex;
@@ -496,7 +559,7 @@ footer {
 
 .controlpad {
     background-image: url("game-interface.jpg");
-    background-size:100% 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: row;
@@ -515,17 +578,13 @@ footer {
     font-size: 400%;
 }
 
-#forward {
-    margin: 55px 170px 5px 155px;
-}
-
 #up {
-    margin-top: 55px;
+    margin-top: 20%;
 }
 
 .controlpad-top {
     display: flex;
-    margin-top: 50%;
+    margin-top: 60%;
 }
 
 .controlpad-bottom {
@@ -554,18 +613,10 @@ footer {
         width: 90px;
         font-size: 200%;
     }
-
-    #forward {
-        margin: 40px 170px 5px 95px;
-    }
-
-    #up {
-        margin-top: 40px;
-    }
     
     .controlpad-top {
         display: flex;
-        margin-top: 50%;
+        margin-top: 60%;
     }
     
     .controlpad-bottom {
@@ -574,7 +625,7 @@ footer {
     }
     
     .controlpad-right {
-        margin-left: 0%;
+        margin-left: 10%;
         margin-right: 3%;
     }
     
@@ -597,17 +648,9 @@ footer {
         font-size: 150%;
     }
 
-    #forward {
-        margin: 20px 100px 5px 65px;
-    }
-
-    #up {
-        margin-top: 20px;
-    }
-    
     .controlpad-top {
         display: flex;
-        margin-top: 50%;
+        margin-top: 60%;
     }
     
     .controlpad-bottom {

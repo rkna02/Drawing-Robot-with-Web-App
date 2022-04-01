@@ -1,12 +1,13 @@
 
-const http = require('http');  // http 
+const http = require('http'); // http module
 const fs = require('fs'); // file handler
-const path = require('path');  // PATH finder
-//comment out host name and port when testing on VM
-const hostname = 'cpen291-17.ece.ubc.ca';
-const port = 80;
-const {Server} = require("socket.io");
-// create server, the function that is passed to createServer will be called whenever we request from the server
+const path = require('path'); // PATH finder
+const hostname = 'cpen291-17.ece.ubc.ca'; // hostname 
+const port = 80; // port number
+const {Server} = require("socket.io"); // sockets for request and answers
+
+// Create server and read frontend files for webpage
+
 const server = http.createServer((req, res) => {
   let filePath = path.join(__dirname, "public", req.url === "/" ? "index.html" : req.url)
   let extName = path.extname(filePath)
@@ -30,195 +31,137 @@ const server = http.createServer((req, res) => {
         break;
   }
 
-  // console.log(`File path: ${filePath}`);
-  // console.log(`Content-Type: ${contentType}`)
-
-  // Status code: 200
-  // JSON: specify type of content to send for parsing
   res.writeHead(200, { 'Content-Type': contentType })  
 
   const readStream = fs.createReadStream(filePath);
   readStream.pipe(res);
 });
 
+// Backend requests and answers sockets
+
 const io = new Server(server);
 
 io.on("connection", (socket) =>{
-  // socket.emit('greeting-from-server', {
-  //   greeting: 'Hello Client'
-  // });
-  // socket.on('greeting-from-client', function (message) {
-  //   console.log(message);
-  // });
 
+  // Shows user connection message on terminal 
   console.log("user connected");
-  socket.on('forward_cmd', function (message) {
-    // socket.emit('greeting-from-server', {
-    //   greeting: 'Hello Client'
-    // });
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["forward.py"]);
-    pythonProcess.on("exit",() =>{
-      console.log("Sending signal")
-      socket.emit('Done2', "done");
-      // process.exit(0);
-    });
+  socket.emit('clientEvent', 'hello from vm server');
+
+  socket.on('serverEvent', (msg) => {
+    console.log("client sent", msg);
   });
 
-  socket.on('backward_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["backward.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
-    // to test forward function, erase 10
-  });
-
-
-  socket.on('right_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["right.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
-    // to test forward function, erase 10
-  });
-
-
-  socket.on('left_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["left.py"]);
-    // to test forward function, erase 10
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
-  });
-
-  socket.on('up', function (message) {
-    console.log(message.toString());
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["penUp.py"]);
-    // to test forward function, erase 10
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
-  });
-
-
-  socket.on('down', function (message) {
-    console.log(message.toString());
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["penDown.py"]);
-    // to test forward function, erase 10
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done2', "done");
-    });
-  });
+  // Mode 1 Option 2: Write Text sockets
 
   socket.on('input', function(input){
     input = input.toLowerCase();
     console.log(input);
-    const spawn = require("child_process").spawn;
+    
     if (input == "circle"){
-      console.log("exec circle");
-      const pythonProcess = spawn('python3', ["dr_cir.py"]);
+      socket.broadcast.emit('cmd_circle', input);
     }
     else if (input == "triangle"){
-      console.log("exec triangle");
-      const pythonProcess = spawn('python3', ["dr_tri.py"]);
+      socket.broadcast.emit('cmd_triangle', input);
     }
     else if (input == "square"){ 
-      console.log("exec square");
-      const pythonProcess = spawn('python3', ["dr_squ.py"]);
+      socket.broadcast.emit('cmd_square', input);
     }
     else if (input == "rectangle"){
-      console.log("exec rectangle");
-      const pythonProcess = spawn('python3', ["dr_rec.py"]);
+      socket.broadcast.emit('cmd_rectangle', input);
     }
     else if (input == "heart"){
-      console.log("exec heart");
-      const pythonProcess = spawn('python3', ["dr_heart.py"]);
+      socket.broadcast.emit('cmd_heart', input);
     }
     else if (input == "oval"){
-      console.log("exec oval");
-      const pythonProcess = spawn('python3', ["dr_oval.py"]);
+      socket.broadcast.emit('cmd_oval', input);
+    }
+    else if (input == "cpen"){
+      socket.broadcast.emit('cmd_cpen', input);
     }
     else{
       console.log("unknown shape");
     }
+  });
 
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
-  })
+  // Mode 1 Option 1: Draw Shape sockets 
 
   socket.on('square_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_squ.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    socket.broadcast.emit('cmd_square', message);
   });
 
   socket.on('triangle_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_tri.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    socket.broadcast.emit('cmd_triangle', message);
   });
 
   socket.on('circle_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_cir.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    socket.broadcast.emit('cmd_circle', message);
   });
 
   socket.on('rectangle_cmd', function (message) {
-    console.log(message);
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_rec.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    socket.broadcast.emit('cmd_rectangle', message);
   });
 
   socket.on('heart_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_heart.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    socket.broadcast.emit('cmd_heart', message);
   });
 
   socket.on('oval_cmd', function (message) {
-    const spawn = require("child_process").spawn;
-    const pythonProcess = spawn('python3',["dr_oval.py"]);
-    pythonProcess.on("exit",() =>{
-      socket.emit('Done1', "done");
-    });
+    socket.broadcast.emit('cmd_oval', message);
   });
 
+  // Done message for mode 1
+  socket.on('CD1', (msg) =>{
+    socket.broadcast.emit('Done1', msg);
+  });
+
+  // Mode 2: Controller sockets 
+  socket.on('back_left_cmd', function (message) {
+    socket.broadcast.emit('cmd_back_left', message);
+  });
+  socket.on('back_right_cmd', function (message) {
+    socket.broadcast.emit('cmd_back_right', message);
+  });
+  socket.on('forward_cmd', function (message) {
+    socket.broadcast.emit('cmd_forward', message);
+  });
+  
+  socket.on('backward_cmd', function (message) {
+    socket.broadcast.emit('cmd_backward', message);
+  });
+
+  socket.on('right_cmd', function (message) {
+    socket.broadcast.emit('cmd_right', message);
+  });
+
+  socket.on('left_cmd', function (message) {
+    socket.broadcast.emit('cmd_left', message);
+  });
+
+  socket.on('up', function (message) {
+    socket.broadcast.emit('cmd_up', message);
+  });
+
+  socket.on('down', function (message) {
+    console.log('qeqeqeqe');
+    socket.broadcast.emit('cmd_down', message);
+  });
+
+  // Shows done message on terminal for mode 2 
+  socket.on('CD2', (msg) =>{
+    socket.broadcast.emit('Done2', msg);
+  });
+
+  // Disconenction message shows on terminal 
   socket.on("disconnect", ()=>{
     console.log("user disconnects");
   })
 
+});
 
-  // socket.on('greeting-from-btn', function (message) {
-  //   console.log(message);
-  // });
-})
+// Server listening to VM host 
 
+server.listen(8000);
 
-server.listen(3000);
-
-//comment out this section when running on VM
 /*
 server.listen(port, hostname, (error) => {
   if (error) {
@@ -226,5 +169,6 @@ server.listen(port, hostname, (error) => {
   } else {
     console.log('Server is listening on port' + port)
    }
- })*/
-
+ });
+ */
+ 

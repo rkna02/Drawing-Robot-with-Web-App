@@ -3,8 +3,6 @@
   <html>
 
     <head>
-      <!--include the javascript file to get functions-->
-      <!--<script type="text/javascript"src ="../../server.js"></script>-->
       <title>CPEN291 Drawbot</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../styles/style.css">
@@ -42,8 +40,8 @@
         <section class="mode-2-instruction">
           <h1>MODE 2</h1>
           <h2>Control the robot with the buttons</h2>
-          <h3>① Press W, A, S, D to move the robot forward, backward, left, and right</h3>
-          <h3>② Press ↑ and ↓ to lift the drawing tool up and down</h3>
+          <h3>① Press the arrow keys to move the robot forward, backward, left, and right</h3>
+          <h3>② Press the double arrow keys to lift the drawing tool up and down</h3>
         </section>
 
         <section class="fill">
@@ -54,20 +52,22 @@
 
           <div class = "controlpad-left">
             <div class = "controlpad-top">
-              <input type = "button" id = "forward" onclick = "move_forward()" value ="W">
+              <input type = "button" id = "left" onclick = "move_forward()" value ="↖">
+              <input type = "button" id = "forward" onclick=" move_right()" value ="↑">
+              <input type = "button" id = "right" onclick=" move_right()" value ="↗">
             </div>
             <div class="controlpad-bottom">
-              <input type = "button" id = "left" onclick=" move_left()" value ="A">
-              <input type = "button" id = "backward" onclick=" move_backward()" value ="S">
-              <input type = "button" id = "right" onclick=" move_right()" value ="D">
+              <input type = "button" id = "left-back" onclick=" move_left()" value ="↙">
+              <input type = "button" id = "backward" onclick=" move_backward()" value ="↓">
+              <input type = "button" id = "right-back" onclick=" move_right()" value ="↘">
             </div>
           </div>
           <div class = "controlpad-right">
             <div class = "controlpad-top">
-              <input type = "button" id = "up" onclick="lift_up()" value="↑">
+              <input type = "button" id = "up" onclick="lift_up()" value="⇈">
             </div>
             <div class="controlpad-bottom">
-              <input type = "button" id = "down" onclick="lift_down()" value="↓">
+              <input type = "button" id = "down" onclick="lift_down()" value="⇊">
             </div>
           </div>
           
@@ -76,26 +76,16 @@
       </main>
 
       <footer>
-        <p>Updated: March 29th, 2022</p>
+        <p>Updated: March 31st, 2022</p>
       </footer>
 
       <script src="/socket.io/socket.io.js"> </script>
       <script>
         const socket = io();
         const timeout = 200;
-        // socket.on('greeting-from-server', function (message) {
-        //   document.body.appendChild(document.createTextNode(message.greeting));
-        // });
-        socket.on('Done2', (msg)=>{
-          //put done msg
-
-        });
 
         const forwardbtn = document.getElementById("forward");
         forwardbtn.addEventListener("click", () =>{
-          // socket.emit('greeting-from-btn',{
-          //   greeting: 'Hello Server from btn'
-          // });
           forward.style.backgroundColor = "rgba(119, 255, 255, 100)";
           forward.style.color = "#001B48";
           socket.emit('forward_cmd', forwardbtn.value);    
@@ -104,9 +94,6 @@
             forward.style.color = "rgba(119, 255, 255, 100)";  
           }, timeout);
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
 
         const backwardbtn = document.getElementById("backward");
         backwardbtn.addEventListener("click", () =>{
@@ -162,10 +149,31 @@
             down.style.color = "rgba(119, 255, 255, 100)";     
           }, timeout);
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
+
+        const backleftbtn = document.getElementById("left-back");
+        backleftbtn.addEventListener("click", ()=>{
+          down.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          down.style.color = "#001B48";
+          socket.emit('back_left_cmd', backleftbtn.value);
+          setTimeout(() => {
+            down.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            down.style.color = "rgba(119, 255, 255, 100)";     
+          }, timeout);
+        });
+
+        const backrightbtn = document.getElementById("right-back");
+        backrightbtn.addEventListener("click", ()=>{
+          down.style.backgroundColor = "rgba(119, 255, 255, 100)";
+          down.style.color = "#001B48";
+          socket.emit('back_right_cmd', backrightbtn.value);
+          setTimeout(() => {
+            down.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            down.style.color = "rgba(119, 255, 255, 100)";     
+          }, timeout);
+        });
+
       </script>
+
     </body>
 
   </html>

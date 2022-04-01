@@ -48,7 +48,7 @@ def turndegree(degree_interval, back_interval):  # turn right
     kit.motor2.throttle = 0.5
     time.sleep(degree_interval) #0.845 for square?
     stop()
-    kit.motor1.throttle = -0.50  # backup
+    kit.motor1.throttle = -0.51  # backup
     kit.motor2.throttle = -0.50
     time.sleep(back_interval) #0.75
     kit.motor1.throttle = 0
@@ -59,17 +59,17 @@ def turndegree(degree_interval, back_interval):  # turn right
 #       |  |
 #       ````
 pdown()
-forward(0.3)  # 0 to 1
-turndegree(0.59,0.6)
+forward(0.4)  # 0 to 1
+turndegree(0.599,0.61)
 pdown()
-forward(0.6)  # 2
-turndegree(0.59,0.6)
+forward(0.7)  # 2
+turndegree(0.599,0.61)
 pdown()
-forward(0.3)  # 3 
-turndegree(0.59,0.6)
+forward(0.4)  # 3 
+turndegree(0.599,0.61)
 pdown()
-forward(0.6)  # 4
-turndegree(0.59,0.6) # reposition: facing to right
+forward(0.7)  # 4
+turndegree(0.599,0.61) # reposition: facing to right
 pup()
 
 p.stop()

@@ -35,7 +35,6 @@
         </div>
       </header>
 
-
       <div class = "mode1_title">
         <h1>MODE 1</h1> 
       </div>
@@ -43,12 +42,13 @@
       <section class="mode-1-sub" id="Mode1">
         <script>
           function printShape(shape) {
-          document.getElementById("demo").innerHTML = shape;
+            document.getElementById("demo").innerHTML = shape;
           }
         </script>
+
         <div class="option1">
           <h2>① Choose one shape below:</h2>
-          <div class="shapes"> <!--option1-->
+          <div class="shapes"> 
             <input type="image" src="../styles/shape_square.jpg" id = "square" class = "block" onclick="printShape('SQUARE')" value = "square"> 
         
             <input type="image" src="../styles/shape_triangle.jpg" id = "triangle" class = "block" onclick="printShape('TRIANGLE')" value = "triangle"> 
@@ -61,7 +61,6 @@
             <input type="image" src="../styles/shape_heart.jpg" id = "heart" class = "block" onclick="printShape('HEART')" value = "heart"> 
 
             <input type="image" src="../styles/shape_oval.jpg" id = "oval" class = "block" onclick="printShape('OVAL')" value = "oval"> 
-
           </div>
           <div class = "shape_text">
             <p>You've chosen: </p>
@@ -70,14 +69,16 @@
         </div>
 
         <div class="option2">
-          <h2>② Enter your text below: </h2> <!--option2 title-->
+          <h2>② Click submit to write the text:</h2> 
           <div class="chatbox">
-            <canvas id="canvas" width="500" height="300"></canvas>
-            <label for="fname"> <br> Input text:</label>
-            <input type="text" id="content" placeholder="Enter content max length 40" maxlength="40">
+            <h1>TEXT</h1>
+            <div class="input">
+              <label for="fname"> <br> Input text:</label>
+              <input type="text" id="content" placeholder="Enter content max length 40" maxlength="40">
+            </div>  
             <button type="button" id="submit">submit</button>
-            <button type="button" id="clear">clear</button>
           </div>
+
           <script>
             var al;
             var Wrapper = {
@@ -104,13 +105,14 @@
                 }
                 return null;
               },
+
               fillText(ctx, text) {
                 text = /^[a-zA-Z]*$/.test(text) ? text.toLocaleUpperCase() : text;
                 ctx.fillStyle = 'white';
                 ctx.font = "30px Arial";
-                //ctx.translate(20, 50);
                 ctx.fillText(text, 20, 50);
               },
+
               drawImage(text) {
                 var canvas = document.createElement('canvas');
                 var ctx = canvas.getContext('2d');
@@ -127,16 +129,17 @@
                   image.onload = function () {
                     var wScale = self.width / image.width;
                     var yScale = self.height / image.height;
-                    //ctx.drawImage(image, 0, 0, image.width, image.height, 0, 0, image.width * wScale, image.height * yScale);
                     self.fillText(ctx, text);
                     resolve(canvas);
                   };
                 });
               },
+
               resetBgColor() {
                 this.ctx.fillStyle = this.bgColor;
                 this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
               },
+
               btn_submit() {
                 var self = this;
                 let content = this.getElement('content');
@@ -162,7 +165,6 @@
                   console.log('item:', item);
                   for (let i = 0; i < item.length; i++) {
                     splitList.push(self.drawImage(item[i]));
-                    //splitList.push(self.fillText(item[i]));
                   }
                 });
             
@@ -178,6 +180,7 @@
                   });
                 });
               },
+
               btn_clear() {
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
                 this.resetBgColor();
@@ -198,55 +201,49 @@
                   self.btn_clear();
                 };
                 this.resetBgColor();
-                // for (let i = 1; i <= 35; i++) {
-                //   // this.images.push('./img/' + i + '.png');
-                //   this.images.push('./img/1.png');
-                // }
               },
-              
             }
+
             window.onload = function () {
               Wrapper.init();
             };
+
           </script>
-          <!-- <script src="./app1.js"></script> -->
         </div>
 
       </section>
 
-      <div class="status">
+      <div id="status">
         <h3 id="drawing">Drawing ...</h3>
         <h3 id="done">Done!</h3>
       </div>
 
       <footer>
-        <p>Updated: March 29th, 2022</p>
+        <p>Updated: March 31st, 2022</p>
       </footer>
 
       <script src="/socket.io/socket.io.js"> </script>
       <script>
         const socket = io();
-        // socket.on('greeting-from-server', function (message) {
-        //   document.body.appendChild(document.createTextNode(message.greeting));
-        // });
+
+        // Update drawing status to "Done" when it is done drawing 
+
         socket.on('Done1', (msg) => {
-          //put done msg
           document.getElementById("drawing").style.display = "none";
+          document.getElementById("status").style.backgroundColor = "green";
           document.getElementById("done").style.display = "block";
           setTimeout(() => {
             document.getElementById("done").style.display = "none";
           }, 1400);
         });
 
+        // Button sockets
+
         const squarebtn = document.getElementById("square");
         squarebtn.addEventListener("click", () =>{
-          // socket.emit('greeting-from-btn',{
-          //   greeting: 'Hello Server from btn'
-          // });
           document.getElementById("drawing").style.display = "block";
           socket.emit('square_cmd', squarebtn.value);        
         });
-
         const submitbtn = document.getElementById("submit");
         const input = document.getElementById("content")
         submitbtn.addEventListener("click", () =>{
@@ -282,9 +279,14 @@
           document.getElementById("drawing").style.display = "block";
           socket.emit('oval_cmd', ovalbtn.value);        
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
+
+        const submitbtn = document.getElementById("submit");
+        const input = document.getElementById("content")
+        submitbtn.addEventListener("click", () =>{
+          document.getElementById("drawing").style.display = "block";
+          socket.emit('input', content.value);
+        });
+
       </script>
 
     </body>

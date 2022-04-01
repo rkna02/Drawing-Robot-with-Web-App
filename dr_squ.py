@@ -19,57 +19,50 @@ def stop():
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
     time.sleep(1)
-    
 def pdown():
     p.ChangeDutyCycle(5.5)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(1)
-    
-
+    time.sleep(0.2)
 def pup():
     p.ChangeDutyCycle(10)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(1)
-    
+    time.sleep(0.2)
 def forward(interval):
-    kit.motor1.throttle = 0.50 # m1 is right side
+    kit.motor1.throttle = 0.53 # m1 is right side
     kit.motor2.throttle = 0.50
     time.sleep(interval)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    
 def turndegree(degree_interval, back_interval):  # turn right
-    # the goal is to turn 90, without moving the pen from it's originial position on paper
-    # assume the pen is down before starting this function
     pup()
-    forward(0.1)
+    forward(0.03)
     kit.motor2.throttle = 0.5
-    time.sleep(degree_interval) #0.845 for square?
+    time.sleep(degree_interval)
     stop()
-    kit.motor1.throttle = -0.50  # backup
+    kit.motor1.throttle = -0.53  # backup
     kit.motor2.throttle = -0.50
-    time.sleep(back_interval) #0.75
+    time.sleep(back_interval)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 0
-    time.sleep(0.5)
+    time.sleep(0.2)
 
 # car-> 0__1
 #       |  |
 #       ````
 pdown()
 forward(0.5)  # 0 to 1
-turndegree(0.59,0.6)
+turndegree(0.629,0.62)
 pdown()
 forward(0.5)  # 2
-turndegree(0.59,0.6)
+turndegree(0.629,0.62)
 pdown()
-forward(0.5)  # 3 
-turndegree(0.59,0.6)
+forward(0.5)  # 3
+turndegree(0.629,0.62)
 pdown()
 forward(0.5)  # 4
-turndegree(0.59,0.6) # reposition: facing to right
+turndegree(0.629,0.62) # reposition: facing to right
 pup()
 
 p.stop()
