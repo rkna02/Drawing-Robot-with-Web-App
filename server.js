@@ -137,6 +137,7 @@ io.on("connection", (socket) =>{
   });
 
   socket.on('down', function (message) {
+    console.log('qeqeqeqe');
     socket.broadcast.emit('cmd_down', message);
   });
 
@@ -153,6 +154,10 @@ io.on("connection", (socket) =>{
 });
 
 // Server listening to VM host 
+
+server.listen(8000);
+
+/*
 server.listen(port, hostname, (error) => {
   if (error) {
      console.log('ERROR: failed to get information', error)
@@ -160,3 +165,5 @@ server.listen(port, hostname, (error) => {
     console.log('Server is listening on port' + port)
    }
  });
+ */
+ 

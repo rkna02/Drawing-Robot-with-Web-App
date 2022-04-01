@@ -456,10 +456,21 @@ footer {
     cursor: pointer;
 }
 
-.status {
+.option2 .input input {
+    height: 20px;
+    width: 300px;
+}
+
+.option2 .input {
+    font-size: 20px;
+    margin-top: -3%;
+    margin-bottom: 3%;
+}
+
+#status {
     display: flex;
-    background-color: rgb(32, 153, 32);
     color: white;
+    background-color: yellow;
     justify-content: center;
 }
 

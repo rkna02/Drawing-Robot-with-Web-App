@@ -3,8 +3,6 @@
   <html>
 
     <head>
-      <!--include the javascript file to get functions-->
-      <!--<script type="text/javascript"src ="../../server.js"></script>-->
       <title>CPEN291 Drawbot</title>
       <meta charset="utf-8">
       <link rel="stylesheet" type="text/css" href="../styles/style.css">
@@ -83,19 +81,9 @@
       <script>
         const socket = io();
         const timeout = 200;
-        // socket.on('greeting-from-server', function (message) {
-        //   document.body.appendChild(document.createTextNode(message.greeting));
-        // });
-        socket.on('Done2', (msg)=>{
-          //put done msg
-
-        });
 
         const forwardbtn = document.getElementById("forward");
         forwardbtn.addEventListener("click", () =>{
-          // socket.emit('greeting-from-btn',{
-          //   greeting: 'Hello Server from btn'
-          // });
           forward.style.backgroundColor = "rgba(119, 255, 255, 100)";
           forward.style.color = "#001B48";
           socket.emit('forward_cmd', forwardbtn.value);    
@@ -104,9 +92,6 @@
             forward.style.color = "rgba(119, 255, 255, 100)";  
           }, timeout);
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
 
         const backwardbtn = document.getElementById("backward");
         backwardbtn.addEventListener("click", () =>{
@@ -162,10 +147,9 @@
             down.style.color = "rgba(119, 255, 255, 100)";     
           }, timeout);
         });
-        // socket.emit('greeting-from-client',{
-        //   greeting: 'Hello Server'
-        // });
+
       </script>
+
     </body>
 
   </html>
