@@ -75,6 +75,9 @@ io.on("connection", (socket) =>{
     else if (input == "oval"){
       socket.broadcast.emit('cmd_oval', message);
     }
+    else if (input == "cpen"){
+      socket.broadcast.emit('cmd_cpen',message);
+    }
     else{
       console.log("unknown shape");
     }
