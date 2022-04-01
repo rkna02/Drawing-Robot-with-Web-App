@@ -309,8 +309,8 @@ footer {
 }
 
 .mode-1 img {
-    height: 400px;
-    width: 450px;
+    height: 320px;
+    width: 480px;
     min-width: 450px;
     margin: 0px 0px 75px 75px;
 }
@@ -325,8 +325,8 @@ footer {
 }
 
 .mode-2 img {
-    height: 400px;
-    width: 450px;
+    height: 320px;
+    width: 430px;
     min-width: 450px;
     margin: 0px 75px 75px 0px;
 }
