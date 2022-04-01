@@ -256,12 +256,6 @@
           document.getElementById("drawing").style.display = "block";
           socket.emit('square_cmd', squarebtn.value);        
         });
-        
-        const submitbtn = document.getElementById("submit");
-        const input = document.getElementById("content")
-        submitbtn.addEventListener("click", () =>{
-          socket.emit('input', content.value);
-        })
 
         const trianglebtn = document.getElementById("triangle");
         trianglebtn.addEventListener("click", () =>{
